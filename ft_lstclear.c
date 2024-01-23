@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_lstclear.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: spenning <spenning@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/01/23 13:43:12 by spenning      #+#    #+#                 */
+/*   Updated: 2024/01/23 13:43:54 by spenning      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list	**lst, void (*del)(void*))
 {
 	t_list	*temp_frt;
-    t_list	*temp_bck;
+	t_list	*temp_bck;
 
 	if (!lst)
 		return ;
