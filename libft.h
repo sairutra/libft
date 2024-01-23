@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 14:26:52 by spenning      ########   odam.nl         */
+/*   Updated: 2024/01/23 18:03:10 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 
 // memory functions
+
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
@@ -63,6 +64,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 
 // is functions
+
 int		ft_isprint(int c);
 int		ft_isdigit(int c);
 int		ft_isascii(int c);
@@ -70,16 +72,34 @@ int		ft_isalpha(int c);
 int		ft_isalnum(int c);
 
 // write functions
+
 int		ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 int		ft_putnbr_fd(int d, int fd);
 int		ft_putstr_fd(char *s, int fd);
 
 // function pointers
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strmapi(char const *s, char (*f) (unsigned int, char));
 
+// printf function
+
+// This function prints out the format string + variables 
+// depending on which format specifiers are given 
+int		ft_printf(const char *format, ...);
+
+// get_next line
+
+//This function returns a null terminated string which represents
+//a line from the file descriptor (fd) given.Since the function 
+//uses the read system call function, it will remember where it 
+//left of reading in the file descriptor. It can be called with
+// -D BUFFER_SIZE=(int) to increase the buffer size that is read.
+char	*get_next_line(int fd);
+
 // bonus functions
+
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);

@@ -1,39 +1,17 @@
-# This is the $(CC) Macro that indicates 
-# the compiler that we are using which is cc
-
-CC = cc
-
-# This is the $(CFLAGS) Macro that indicates 
-# which flags we use in combination with $(CC) macros
-
-CFLAGS = -Wall -Werror -Wextra
-
-# This is the $(SRCS) Macro that indicates 
-# which files we want to compile in this makefile
-
-SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-		ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c \
-		ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c \
-		ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c \
-		ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
-		ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c \
-		ft_substr.c ft_tolower.c ft_toupper.c
-
-BNS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-
-# These objects are dependent on the sources macro
-# This syntax means that it replaces all the .c to .o
-# when the $(OBJS) macro is called.
-
-OBJS = $(SRCS:.c=.o)
-
-B-OBJS = $(BNS:.c=.o)
-
 # This is the $(NAME) macro that is equivalent to the 
 # libft.a file.
 
 NAME = libft.a
+
+LIB_DIR = libft
+
+PRINT_DIR = ft_printf
+
+PRINT_A = libftprintf.a
+
+GNL_DIR = get_next_line
+
+GNL_A = get_next_line.a
 
 # This all is rule that is dependent on $(NAME) rule
 # because it is the first command in the makefile, it will be 
@@ -47,8 +25,19 @@ all: $(NAME)
 # files if they did not exist yet, and reindex(s) the archive
 # to make it easier to locate files
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(PRINT_DIR)/$(PRINT_A) $(GNL_DIR)/$(GNL_A) $(LIB_DIR)/$(NAME) 
+
+$(PRINT_DIR)/$(PRINT_A): 
+	@$(MAKE) -C $(PRINT_DIR) all
+	ar rcs $(NAME) $(PRINT_DIR)/*.o
+
+$(GNL_DIR)/$(GNL_A):
+	@$(MAKE) -C $(GNL_DIR) all
+	ar rcs $(NAME) $(GNL_DIR)/*.o
+
+$(LIB_DIR)/$(NAME):
+	@$(MAKE) -C $(LIB_DIR) all
+	ar rcs $(NAME) $(LIB_DIR)/*.o
 
 # all command is dependent on .o files existing, so this rule
 # will make sure to (re)create them if neccessary. This rule is a 
@@ -58,14 +47,10 @@ $(NAME): $(OBJS)
 # and it will apply this rule for each case. -c is to make object files
 # and -o to then name those .o files.
 
- %.o: %.c
-	$(CC) $(CFLAGS) -c $<  -o $@
-
-# This rule has a phony target. The command 
-# will forcefully remove all elements that are in 
-# $(OBJS) macro.
-
 clean:
+	@$(MAKE) -C $(PRINT_DIR) clean
+	@$(MAKE) -C $(GNL_DIR) clean
+	@$(MAKE) -C $(LIB_DIR) clean
 	rm -f $(OBJS)
 	rm -f $(B-OBJS)
 
@@ -75,6 +60,9 @@ clean:
 # $(NAME) macro
 
 fclean: clean
+	@$(MAKE) -C $(PRINT_DIR) fclean
+	@$(MAKE) -C $(GNL_DIR) fclean
+	@$(MAKE) -C $(LIB_DIR) fclean
 	rm -f $(NAME)
 
 # This rule has a target which is fclean
