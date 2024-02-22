@@ -135,9 +135,49 @@ cd libft
 
 ```
 
+3. Call the Makefile 
+
+```sh
+
+make
+
+```
+
+4. Copy libft.a and libft.h files over to working directory
+
+```sh
+
+cp {location}/libft.h {working directory}
+cp {location}/libft.a {working directory}
+
+```
+
+<a href="https://github.com/sebastianpenning/libft">
+  <img src="images/make_libft.png" alt="make_libft" width="1100" height="200">
+</a>
+
+
 <!-- USAGE EXAMPLES -->
 
 # Usage
+
+1. Include libft.h file and libft function in project.
+
+<a href="https://github.com/sebastianpenning/libft">
+  <img src="images/include_libft.png" alt="include_libft" width="800" height="175">
+</a>
+
+
+2. Compile with cc
+
+```sh
+cc -Wall -Werror -Wextra {project_files.c} libft.a && ./a.out
+```
+
+<a href="https://github.com/sebastianpenning/libft">
+  <img src="images/compile_libft.png" alt="compile_libft" width="1100" height="100">
+</a>
+
 
 
 # Tester
