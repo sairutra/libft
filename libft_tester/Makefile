@@ -1,6 +1,6 @@
 GNL_TEST_DIR = get_next_line/get_next_line_tester
 PRINTF_TEST_DIR = ft_printf/ft_printf_tester
-LIBFT_TEST_DIR = LIBFT
+LIBFT_TEST_DIR = libft
 
 .SILENT:
 
@@ -8,6 +8,7 @@ all:	LIBFT PRINTF GNL
 
 LIBFT:
 	@$(MAKE) -C $(LIBFT_TEST_DIR) all
+	@$(MAKE) -C $(LIBFT_TEST_DIR) fclean
 
 PRINTF:
 	cp -r ../ft_printf ./
