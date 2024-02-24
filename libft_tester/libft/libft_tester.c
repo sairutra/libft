@@ -21,6 +21,7 @@ int main ()
 	fclose(fopen("logs/error_log.txt", "w"));
     fail += atoi_test();
     fail += bzero_test();
+    fail += calloc_test();
     if(fail > 0)
         printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
     printf("\n");

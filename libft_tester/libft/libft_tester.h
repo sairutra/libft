@@ -34,6 +34,8 @@
 
 int atoi_test();
 int bzero_test();
+int calloc_test();
+
 
 #endif
 
