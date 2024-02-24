@@ -32,7 +32,8 @@
 # define WHT   "\x1B[37m"
 # define RESET "\x1B[0m"
 
-void atoi_test();
+int atoi_test();
+int bzero_test();
 
 #endif
 

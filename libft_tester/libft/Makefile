@@ -12,6 +12,7 @@ TESTS = ft_atoi_tests.c
 
 all: test
 
+.SILENT:
 
 test:
 	@$(MAKE) -C $(LIBFT) all
@@ -20,9 +21,10 @@ test:
 	cc -Wall -Werror -Wextra $(WELCOME) && ./a.out
 	rm a.out
 	mkdir -p logs
-	cc -Wall -Werror -Wextra $(TESTER) $(LIBFT_A) $(TEST_DIR)/*c && ./a.out
+	cc -Wall -Werror -Wextra $(TESTER) $(TEST_DIR)/* $(LIBFT_A) && ./a.out
 	rm a.out
 
 
 fclean:
-	rm $(LIBFT_A)
+	rm -rf $(LIBFT_A)
+	rm -rf logs

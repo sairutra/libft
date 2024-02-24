@@ -15,6 +15,14 @@
 
 int main ()
 {
+    int fail;
+
+    fail = 0;
 	fclose(fopen("logs/error_log.txt", "w"));
-    atoi_test();
+    fail += atoi_test();
+    fail += bzero_test();
+    if(fail > 0)
+        printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
+    printf("\n");
+    return(0);
 }

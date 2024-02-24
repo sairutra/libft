@@ -1,6 +1,6 @@
-#include "libft_tester.h"
+#include "../libft_tester.h"
 
-int fail = 0;
+int fail_atoi = 0;
 
 int atoi_cmp(int test_count, char *test)
 {
@@ -25,14 +25,14 @@ int atoi_cmp(int test_count, char *test)
         fprintf(errorLog,"atoi: %d\n", result_org);
         fprintf(errorLog,"ft_atoi: %d\n", result_ft);
         fprintf(errorLog,"---------\n");
-        fail = 1;
+        fail_atoi += 1;
     }
     else
 		printf(GRN "%d OK " RESET, test_count);
     return(test_count + 1);
 }
 
-void atoi_test()
+int atoi_test()
 {
     int  test_count = 1;
 
@@ -50,6 +50,5 @@ void atoi_test()
     test_count = atoi_cmp(test_count, "asbj");
     test_count = atoi_cmp(test_count, "");
     test_count = atoi_cmp(test_count, "       ");
-    if(fail == 1)
-        printf(RED "There was an error. Check error_log.txt\n" RESET);
+    return(fail_atoi);
 }
