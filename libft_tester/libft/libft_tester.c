@@ -28,6 +28,7 @@ int main ()
     fail += is_test("ft_isdigit", isdigit, ft_isdigit);
     fail += is_test("ft_isprint", isprint, ft_isprint);
     fail += itoa_test();
+    fail += memchr_test();
     if(fail > 0)
         printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
     printf("\n");
