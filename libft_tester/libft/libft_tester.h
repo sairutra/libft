@@ -35,9 +35,7 @@
 int atoi_test();
 int bzero_test();
 int calloc_test();
-int alnum_test();
-int alpha_test();
-int ascii_test();
+int is_test(char * function_name, int (*f)(int), int (*ft)(int));
 
 
 #endif

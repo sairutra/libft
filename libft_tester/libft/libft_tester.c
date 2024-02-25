@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft_tester.h"
-
+#include <ctype.h>
 
 int main ()
 {
@@ -22,9 +22,14 @@ int main ()
     fail += atoi_test();
     fail += bzero_test();
     fail += calloc_test();
-    fail += alnum_test();
-    fail += alpha_test();
-    fail += ascii_test();
+    // fail += alnum_test();
+    // fail += alpha_test();
+    // fail += ascii_test();
+    fail += is_test("ft_isalnum", isalnum, ft_isalnum);
+    fail += is_test("ft_isalpha", isalpha, ft_isalpha);
+    fail += is_test("ft_isascii", isascii, ft_isascii);
+    fail += is_test("ft_isdigit", isdigit, ft_isdigit);
+    fail += is_test("ft_isprint", isprint, ft_isprint);
     if(fail > 0)
         printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
     printf("\n");
