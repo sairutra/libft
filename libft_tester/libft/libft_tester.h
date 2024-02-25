@@ -20,6 +20,7 @@
 # include "../../libft.h"
 # include <stdlib.h>
 # include <limits.h>
+# include <string.h>
 
 # define RED   "\x1B[31m"
 # define GRN   "\x1B[1;32m"
@@ -36,7 +37,7 @@ int atoi_test();
 int bzero_test();
 int calloc_test();
 int is_test(char * function_name, int (*f)(int), int (*ft)(int));
-
+int itoa_test();
 
 #endif
 
