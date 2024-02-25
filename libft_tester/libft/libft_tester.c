@@ -30,6 +30,7 @@ int main ()
     fail += itoa_test();
     fail += memchr_test();
     fail += memcmp_test();
+    fail += memcpy_test();
     if(fail > 0)
         printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
     printf("\n");
