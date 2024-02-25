@@ -42,5 +42,6 @@ int memchr_test();
 int memcmp_test();
 int memcpy_test();
 int memmove_test();
+int memset_test();
 #endif
 

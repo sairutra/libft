@@ -32,6 +32,7 @@ int main ()
     fail += memcmp_test();
     fail += memcpy_test();
     fail += memmove_test();
+    fail += memset_test();
     if(fail > 0)
         printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
     printf("\n");
