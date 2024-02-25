@@ -24,6 +24,7 @@ int main ()
     fail += calloc_test();
     fail += alnum_test();
     fail += alpha_test();
+    fail += ascii_test();
     if(fail > 0)
         printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
     printf("\n");

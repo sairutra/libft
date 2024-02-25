@@ -37,6 +37,7 @@ int bzero_test();
 int calloc_test();
 int alnum_test();
 int alpha_test();
+int ascii_test();
 
 
 #endif
