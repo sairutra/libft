@@ -39,6 +39,7 @@ int calloc_test();
 int is_test(char * function_name, int (*f)(int), int (*ft)(int));
 int itoa_test();
 int memchr_test();
+int memcmp_test();
 
 #endif
 
