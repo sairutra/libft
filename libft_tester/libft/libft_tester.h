@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printftests.h                                   :+:    :+:            */
+/*   libft_tester.h                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/30 15:02:35 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/05 15:07:24 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int memcpy_test();
 int memmove_test();
 int memset_test();
 int putchar_test();
+int putendl_test();
 #endif
 
