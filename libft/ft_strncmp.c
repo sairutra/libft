@@ -6,9 +6,11 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/08 16:15:25 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:56:22 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/07 13:10:08 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Maybe also make version that can compare null strings
 
 // function compares s1 to s2 until either n is reached or both string
 // have reached their null terminator

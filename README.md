@@ -187,7 +187,9 @@ cc -Wall -Werror -Wextra {project_files.c} libft.a && ./a.out
 
 # Roadmap
 
-- [ ]
+- [ ] intellisense documentation for each function in libft.h
+- [ ] ft_strcmpnull (ft_strcmp with ability to compare null strings without segfaulting)
+
 
 See the [open issues](https://github.com/sebastianpenning/libft/issues) for a full list of proposed features (and known issues).
 
