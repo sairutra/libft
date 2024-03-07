@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/19 12:54:09 by spenning      #+#    #+#                 */
-/*   Updated: 2024/03/07 13:07:52 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/07 13:22:53 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int main ()
     fail += strnstr_test();
     fail += strrchr_test();
     fail += substr_test();
+    fail += strtrim_test();
     if(fail > 0)
         printf(RED "\nThere was an error. Check error_log.txt\n" RESET);
     printf("\n");

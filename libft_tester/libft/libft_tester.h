@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/03/07 13:07:37 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/07 13:22:38 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int strncmp_test();
 int strnstr_test();
 int strrchr_test();
 int substr_test();
+int strtrim_test();
 #endif
 
