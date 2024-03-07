@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/03/07 12:50:57 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/07 12:54:41 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int strlen_test();
 int strmapi_test();
 int strncmp_test();
 int strnstr_test();
+int strrchr_test();
 #endif
 
