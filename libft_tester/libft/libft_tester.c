@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/19 12:54:09 by spenning      #+#    #+#                 */
-/*   Updated: 2024/03/07 13:22:53 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/07 13:33:13 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ int main ()
     fail += atoi_test();
     fail += bzero_test();
     fail += calloc_test();
-    fail += is_test("ft_isalnum", isalnum, ft_isalnum);
-    fail += is_test("ft_isalpha", isalpha, ft_isalpha);
-    fail += is_test("ft_isascii", isascii, ft_isascii);
-    fail += is_test("ft_isdigit", isdigit, ft_isdigit);
-    fail += is_test("ft_isprint", isprint, ft_isprint);
+    fail += isto_test("ft_isalnum", isalnum, ft_isalnum);
+    fail += isto_test("ft_isalpha", isalpha, ft_isalpha);
+    fail += isto_test("ft_isascii", isascii, ft_isascii);
+    fail += isto_test("ft_isdigit", isdigit, ft_isdigit);
+    fail += isto_test("ft_isprint", isprint, ft_isprint);
+    fail += isto_test("ft_tolower", tolower, ft_tolower);
+    fail += isto_test("ft_toupper", toupper, ft_toupper);
     fail += itoa_test();
     fail += memchr_test();
     fail += memcmp_test();

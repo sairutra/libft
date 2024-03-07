@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/03/07 13:22:38 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/07 13:32:32 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 int atoi_test();
 int bzero_test();
 int calloc_test();
-int is_test(char * function_name, int (*f)(int), int (*ft)(int));
+int isto_test(char * function_name, int (*f)(int), int (*ft)(int));
 int itoa_test();
 int memchr_test();
 int memcmp_test();
