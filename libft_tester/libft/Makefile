@@ -25,7 +25,7 @@ test:
 	cc -Wall -Werror -Wextra $(NORMINETTE) && ./a.out
 	rm a.out
 	mkdir -p logs
-	cc -Wall -Werror -Wextra -lbsd $(TESTER) $(TEST_DIR)/*.c $(LIBFT_A) && ./a.out
+	cc -Wall -Werror -Wextra $(TESTER) $(TEST_DIR)/*.c $(LIBFT_A) -lbsd && ./a.out
 	rm a.out
 
 
