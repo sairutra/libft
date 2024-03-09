@@ -19,6 +19,7 @@ int main ()
 
     fail = 0;
 	fclose(fopen("logs/error_log.txt", "w"));
+    printf(YEL "\nFunctions" RESET);
     fail += atoi_test();
     fail += bzero_test();
     fail += calloc_test();

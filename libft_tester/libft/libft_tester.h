@@ -33,9 +33,9 @@
 # define WHT   "\x1B[37m"
 # define RESET "\x1B[0m"
 
-# define NORMINETTE "/usr/local/bin/norminette"
 # define NORMFOLDER "../../libft"
 # define NORMLOGS "logs/norminette_output.txt"
+# define NORMLOCLOGS "logs/norminette_location.txt"
 
 # define ATOI "ft_atoi.c"
 # define BZERO "ft_bzero.c"
