@@ -119,12 +119,12 @@ To get a local copy up and running follow these simple example steps.
 
 
 # Installation
-1. Clone the repo
+1. Clone the repo, --recursive flag is for submodules
 
 
 ```sh
 
-git clone https://github.com/sebastianpenning/libft.git
+git clone https://github.com/sebastianpenning/libft.git --recursive
 
 ```
 2. cd into directory
