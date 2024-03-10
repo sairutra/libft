@@ -20,11 +20,11 @@ test:
 	@$(MAKE) -C $(LIBFT) all
 	cp $(LIBFT)/$(LIBFT_A) ./
 	@$(MAKE) -C $(LIBFT) fclean
+	mkdir -p logs
 	cc -Wall -Werror -Wextra $(WELCOME) && ./a.out
 	rm a.out
 	cc -Wall -Werror -Wextra $(NORMINETTE) && ./a.out
 	rm a.out
-	mkdir -p logs
 	cc -Wall -Werror -Wextra $(TESTER) $(TEST_DIR)/*.c $(LIBFT_A) -lbsd && ./a.out
 	rm a.out
 
