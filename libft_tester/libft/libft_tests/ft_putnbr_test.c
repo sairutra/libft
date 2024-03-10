@@ -13,14 +13,15 @@ int compareFile_putnbr(FILE * fPtr1, char *test, int * line, int * col)
 	*line = 1;
     *col  = 0;
 	ch1 = '\0';
-
     // Input character from both files
     while(ch1 != EOF)
 	{
-		if (ch1 != ch2)
-			return -1;
 		ch1 = fgetc(fPtr1);
 		ch2 = test[index];
+        if (ch1 == EOF)
+            return (0);
+		if (ch1 != ch2)
+			return -1;
 	    // If characters are not same then return -1
 		index++;
 	}
