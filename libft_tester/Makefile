@@ -7,16 +7,16 @@ LIBFT_TEST_DIR = libft
 all:	LIBFT PRINTF GNL
 
 LIBFT:
-	@$(MAKE) -C $(LIBFT_TEST_DIR) all
-	@$(MAKE) -C $(LIBFT_TEST_DIR) fclean
+	@$(MAKE) --no-print-directory -C $(LIBFT_TEST_DIR) all
+	@$(MAKE) --no-print-directory -C $(LIBFT_TEST_DIR) fclean
 
 PRINTF:
 	cp -r ../ft_printf ./
-	@$(MAKE) -C $(PRINTF_TEST_DIR) all
+	@$(MAKE) --no-print-directory -C $(PRINTF_TEST_DIR) exe_welcome_lite
 	rm -rf ft_printf
 
 GNL:
 	cp -r ../get_next_line	./
-	@$(MAKE) -C $(GNL_TEST_DIR) all
+	@$(MAKE) --no-print-directory -C $(GNL_TEST_DIR) exe_welcome_lite
 	rm -rf get_next_line
 	

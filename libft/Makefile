@@ -24,19 +24,19 @@ LIB_DIR = libft
 all: $(NAME) bonus
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
  %.o: %.c
-	$(CC) $(CFLAGS) -c $<  -o $@
+	@$(CC) $(CFLAGS) -c $<  -o $@
 
 clean:
-	rm -f $(OBJS)
-	rm -f $(B-OBJS)
+	@rm -f $(OBJS)
+	@rm -f $(B-OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
 bonus: $(B-OBJS)
-	ar rcs $(NAME) $(B-OBJS)
+	@ar rcs $(NAME) $(B-OBJS)
