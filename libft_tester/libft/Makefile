@@ -1,3 +1,5 @@
+include ../../libft/sources.mk
+
 LIBFT = ../../../libft
 
 LIBFT_A = libft.a
@@ -10,24 +12,34 @@ TEST_DIR = libft_tests
 
 TESTS = ft_atoi_tests.c
 
-NORMINETTE = libft_norminette.c
+NORMINETTE = ../../libft/norminette_tester/norminette.c
 
 all: test
 
 .SILENT:
 
-test:
-	@$(MAKE) -C $(LIBFT) all
-	cp $(LIBFT)/$(LIBFT_A) ./
-	@$(MAKE) -C $(LIBFT) fclean
-	mkdir -p logs
-	cc -Wall -Werror -Wextra $(WELCOME) && ./a.out
-	rm a.out
-	cc -Wall -Werror -Wextra $(NORMINETTE) && ./a.out
-	rm a.out
+test: libft logs welcome norminette tests
+
+
+tests:
 	cc -Wall -Werror -Wextra $(TESTER) $(TEST_DIR)/*.c $(LIBFT_A) -lbsd && ./a.out
 	rm a.out
 
+norminette:
+	cc -Wall -Werror -Wextra $(NORMINETTE) && ./a.out $(SOURCES)
+	rm a.out
+
+welcome:
+	cc -Wall -Werror -Wextra $(WELCOME) && ./a.out
+	rm a.out
+
+logs:
+	mkdir -p logs
+
+libft:
+	@$(MAKE) -C $(LIBFT) all
+	cp $(LIBFT)/$(LIBFT_A) ./
+	@$(MAKE) -C $(LIBFT) fclean
 
 fclean:
 	rm -rf $(LIBFT_A)

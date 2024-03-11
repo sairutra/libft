@@ -4,3 +4,6 @@
 [submodule "ft_printf"]
 	path = ft_printf
 	url = https://github.com/sebastianpenning/ft_printf.git
+[submodule "libft/norminette_tester"]
+	path = libft/norminette_tester
+	url = https://github.com/sebastianpenning/norminette_tester.git
