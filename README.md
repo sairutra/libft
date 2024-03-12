@@ -119,7 +119,7 @@ To get a local copy up and running follow these simple example steps.
 
 
 # Installation
-1. Clone the repo, --recursive flag is for submodules
+1. Clone the repo, --recursive flag is for submodules, and is necessary.
 
 
 ```sh
@@ -175,13 +175,27 @@ cc -Wall -Werror -Wextra {project_files.c} libft.a && ./a.out
 ```
 
 <a href="https://github.com/sebastianpenning/libft">
-  <img src="images/compile_libft.png" alt="compile_libft" width="1100" height="100">
+  <img src="images/compile_libft.png" alt="compile_libft" width="1100" height="125">
 </a>
 
 
 
 # Tester
 
+The libft tester includes tests for libft, printf, and get_next_line with both unit tests and norminette
+tests for all files included. In the future memory tests are planned to be added.
+
+1. cd into libft_tester
+
+<a href="https://github.com/sebastianpenning/libft">
+  <img src="images/tester_1.png" alt="include_libft" width="1100" height="120">
+</a>
+
+2. Make tests
+
+<a href="https://github.com/sebastianpenning/libft">
+  <img src="images/tester_2.png" alt="include_libft" width="1100" height="600">
+</a>
 
 <!-- ROADMAP -->
 
@@ -189,6 +203,7 @@ cc -Wall -Werror -Wextra {project_files.c} libft.a && ./a.out
 
 - [ ] intellisense documentation for each function in libft.h
 - [ ] ft_strcmpnull (ft_strcmp with ability to compare null strings without segfaulting)
+- [ ] memory tests
 
 
 See the [open issues](https://github.com/sebastianpenning/libft/issues) for a full list of proposed features (and known issues).
