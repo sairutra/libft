@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 18:03:10 by spenning      ########   odam.nl         */
+/*   Updated: 2024/03/21 14:41:59 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,33 @@ typedef struct s_list
 
 // string functions
 
-// This function takes a pointer to s and creates a substring with len length starting from  
-// start index. if start is longer than length of s, then function will return empty string. If the
-// length is bigger than length of s starting from index start, then len will be adjusted to length of
-// s starting from index start. This function returns a char * to allocated substring, 
-//if allocations failed it will return NULL.
+// This function takes a pointer to s and creates a substring with len length 
+// starting from start index. if start is longer than length of s, then 
+// function will return empty string. If the length is bigger than length of 
+// s starting from index start, then len will be adjusted to length of
+// s starting from index start. This function returns a char * to allocated 
+// substring, if allocations failed it will return NULL.
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-// This function takes a pointer to s1 and creates a new string with characters from set trimmed from 
-// beginning and end of s1. If memory allocation fails function returns NULL otherwise function returns 
+// This function takes a pointer to s1 and creates a new string with 
+// characters from set trimmed from beginning and end of s1. 
+// If memory allocation fails function returns NULL otherwise function returns 
 // trimmed string.
 char	*ft_strtrim(char const *s1, char const *set);
-// This function takes big and try to find little. if little is empty function returns
-// big, If little is found then function returns a pointer to the start of the first occurence of little. 
+// This function takes big and try to find little. if little is empty function
+// returns big, If little is found then function returns a pointer to the 
+// start of the first occurence of little. 
 // Otherwise function returns NULL. 
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-// This function takes s1 and compares s2 for n bytes. if s1 and s2 are equal return value is 0, otherwise
-// the difference in values of bytes being compared in that moment is returned which is nonzero.
+// This function takes s1 and compares s2 for n bytes. if s1 and s2 are equal 
+// return value is 0, otherwise the difference in values of bytes being 
+// compared in that moment is returned which is nonzero.
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 // This function takes pointer char *s, and expects a null terminated string.
 // then returns the length of the string.
 size_t	ft_strlen(const char *s);
-// This function copy size bytes from src to dst, function always returns the length of src. 
-// Function will keep on copying until it reaches size - 1, and there are still charachters to copy
+// This function copy size bytes from src to dst, function always returns the
+// length of src. Function will keep on copying until it reaches size - 1,
+// and there are still charachters to copy
 // from src. Afterwards it null terminates the result.
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 // This function takes dst, src, and n bytes (full buffer) 
@@ -85,54 +90,64 @@ char	*ft_strchr(const char *s, int c);
 // function will return pointer to first instance found. 
 // if c is \0 it will still return a pointer to the null terminator in s
 char	*ft_strrchr(const char *s, int c);
-// This function takes a char* nptr and it will return the int value found in nptr.
-// function skips whitespaces, returns both plus or minus values. If nptr is not well formated with multiple
-// minusses or charachters in between operators and number then it will return NULL
+// This function takes a char* nptr and it will return the int value 
+// found in nptr. function skips whitespaces, returns both plus or minus
+// values. If nptr is not well formated with multiple minusses or 
+// charachters in between operators and number then it will return NULL
 int		ft_atoi(const char *nptr);
-// This function takes n and it will return a malloced string with the string representation of n.
-// if number is negative then it will first put a '-'. it will end the function by null
-// terminating the result. 0 value is also accepted. If malloc fails it will return NULL.
+// This function takes n and it will return a malloced string with the 
+// string representation of n. if number is negative then it will first
+// put a '-'. it will end. the function by null terminating the result.
+// 0 value is also accepted. If malloc fails it will return NULL.
 char	*ft_itoa(int n);
-// This function takes input and converts input to uppercase equivalent if input was lowercase.
-// Function returns conversion.
+// This function takes input and converts input to uppercase equivalent
+// if input was lowercase. Function returns conversion.
 int		ft_toupper(int input);
-// This function takes input and converts input to lowercase equivalent if input was uppercase.
-// Function returns conversion.
+// This function takes input and converts input to lowercase equivalent
+// if input was uppercase. Function returns conversion.
 int		ft_tolower(int input);
-// This function takes null terminated s and splits s into multiple string with delimiter c. 
-// amount of splits depend on amount of occurences of c. Function returns double char pointer in which
-// first array of pointers is ended with a NULL pointer, and all strings are null terminated. 
-// If allocation fails then function returns NULL.
+// This function takes null terminated s and splits s into multiple 
+// string with delimiter c. amount of splits depend on amount of occurences
+// of c. Function returns double char pointer 
+// in which first array of pointers is ended with a NULL pointer, 
+// and all strings are null terminated. If allocation fails then function 
+// returns NULL.
 char	**ft_split(char const *s, char c);
 
 // memory functions
 
-// This function takes a pointer to s and puts 0 for n consecutive memory locations 
-// from the memory location pointed to by s. This function returns nothing.
+// This function takes a pointer to s and puts 0 for n consecutive memory 
+// locations from the memory location pointed to by s. This function returns
+// nothing.
 void	ft_bzero(void *s, size_t n);
-// This function takes a pointer to s and puts c for n consecutive memory locations 
-// from the memory location pointed to by s. This function returns nothing.
+// This function takes a pointer to s and puts c for n consecutive memory 
+// locations from the memory location pointed to by s. This function 
+// returns nothing.
 void	*ft_memset(void *s, int c, size_t n);
-// This function takes a pointer to dest and puts data for n consecutive memory locations 
-// from the memory location pointed to by src. Memory areas may overlap. Function is similar
-// to memcpy.This function returns nothing.
+// This function takes a pointer to dest and puts data for n consecutive 
+// memory locations from the memory location pointed to by src. Memory areas
+// may overlap. Function is similar to memcpy.This function returns nothing.
 void	*ft_memmove(void *dest, const void *src, size_t n);
-// This function takes a pointer to dest and puts data for n consecutive memory locations 
-// from the memory location pointed to by src. Memory areas may not overlap. if memory areas that need
-// to be copied overlap then memmove should be used. This function returns nothing.
+// This function takes a pointer to dest and puts data for n consecutive 
+// memory locations from the memory location pointed to by src. Memory areas
+// may not overlap. if memory areas that need to be copied overlap then 
+// memmove should be used. This function returns nothing.
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-// This function takes a pointer to s1 and compares data for n consecutive memory locations 
-// from the memory location pointed to by s2. This function returns the difference in int values of the
-// character compared which differ at the moment of comparison, if function returns 0 then n was 0 or memory
+// This function takes a pointer to s1 and compares data for n consecutive
+// memory locations from the memory location pointed to by s2. This function
+// returns the difference in int values of the character compared which differ
+// at the moment of comparison, if function returns 0 then n was 0 or memory
 // was equal. pointer that is returned should later be freed with free()
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-// This function takes a pointer to s and looks for n consecutive memory locations 
-// for the c value. This function returns a void pointer to the location at which c was found, or NULL
-// if nothing was found.
+// This function takes a pointer to s and looks for n consecutive memory 
+// locations for the c value. This function returns a void pointer to the 
+// location at which c was found, or NULL if nothing was found.
 void	*ft_memchr(const void *s, int c, size_t n);
-// This function takes allocates memory for nmemb elments of size bytes and returns pointer to the allocated
-// memory. If the multiplication of nmemb and size causes a integer overflow then function will return NULL, same
-// if allocation fails. pointer that is returned should later be freed with free()
+// This function takes allocates memory for nmemb elments of size bytes and
+// returns pointer to the allocated memory. If the multiplication of nmemb 
+// and size causes a integer overflow then function will return NULL, same
+// if allocation fails. pointer that is returned should later be 
+// freed with free()
 void	*ft_calloc(size_t nmemb, size_t size);
 
 // is functions
@@ -160,7 +175,8 @@ int		ft_putchar_fd(char c, int fd);
 // This function takes char * s and puts this string in fd file descriptor.
 // with \n charachter at the end of the string in the file descriptor
 void	ft_putendl_fd(char *s, int fd);
-// This function takes d and puts this integer value as a string in fd file descriptor.
+// This function takes d and puts this integer value as a string in 
+// fd file descriptor.
 int		ft_putnbr_fd(int d, int fd);
 // This function takes char *s and puts this string in fd file descriptor.
 int		ft_putstr_fd(char *s, int fd);
