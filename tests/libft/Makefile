@@ -1,5 +1,3 @@
-include ../../libft/sources.mk
-
 LIBFT = ../../../libft
 
 LIBFT_A = libft.a
@@ -12,7 +10,11 @@ TEST_DIR = libft_tests
 
 TESTS = ft_atoi_tests.c
 
-NORMINETTE = ../../libft/norminette_tester/norminette.c
+SRCDIR = ../../src/libft
+
+SOURCES     := $(shell find $(SRCDIR) -type f -name "*.c")
+
+NORMINETTE = ../norminette_tester/norminette.c
 
 all: test
 
@@ -38,7 +40,7 @@ logs:
 
 libft:
 	@$(MAKE) -C $(LIBFT) all
-	cp $(LIBFT)/$(LIBFT_A) ./
+	cp $(LIBFT)/lib/$(LIBFT_A) ./
 	@$(MAKE) -C $(LIBFT) fclean
 
 fclean:

@@ -4,7 +4,7 @@ LIBFT_TEST_DIR = libft
 
 .SILENT:
 
-all:  PRINTF GNL LIBFT
+all:  LIBFT PRINTF GNL
 
 LIBFT:
 	@$(MAKE) --no-print-directory -C $(LIBFT_TEST_DIR) all
@@ -20,3 +20,6 @@ GNL:
 	@$(MAKE) --no-print-directory -C $(GNL_TEST_DIR) exe_welcome_lite
 	rm -rf get_next_line
 	
+fclean: 
+	rm -rf printf
+	rm -rf get_next_line

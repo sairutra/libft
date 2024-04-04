@@ -17,7 +17,7 @@
 // unistd library. and malloc and free from the stdlib library.
 
 # include <stdio.h>
-# include "../../libft.h"
+# include "../../inc/libft.h"
 # include <stdlib.h>
 # include <limits.h>
 # include <string.h>

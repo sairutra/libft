@@ -13,3 +13,6 @@
 [submodule "src/ft_printf"]
 	path = src/ft_printf
 	url = https://github.com/sebastianpenning/ft_printf.git
+[submodule "tests/norminette_tester"]
+	path = tests/norminette_tester
+	url = https://github.com/sebastianpenning/norminette_tester.git
