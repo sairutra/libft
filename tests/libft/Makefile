@@ -8,8 +8,6 @@ TESTER = libft_tester.c
 
 TEST_DIR = libft_tests
 
-TESTS = ft_atoi_tests.c
-
 SRCDIR = ../../src/libft
 
 SOURCES     := $(shell find $(SRCDIR) -type f -name "*.c")

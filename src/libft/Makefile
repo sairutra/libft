@@ -19,7 +19,6 @@ CFLAGS      := -Wall -Werror -Wextra
 #---------------------------------------------------------------------------------
 SOURCES     := $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
 OBJECTS     := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.$(OBJEXT)))
-OBJS        := $(shell find $(BUILDDIR) -type f -name "*.$(OBJEXT)")
 
 #Default Make
 all: directories $(TARGET)
@@ -42,7 +41,7 @@ fclean: clean
 
 #Link
 $(TARGET): $(OBJECTS)
-	@ar rcs $(TARGET) $(OBJS)
+	@ar rcs $(TARGET) $(OBJECTS)
 	 mv $(TARGET) $(TARGETDIR)/
 
 #Compile

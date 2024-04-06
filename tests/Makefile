@@ -11,12 +11,12 @@ LIBFT:
 	@$(MAKE) --no-print-directory -C $(LIBFT_TEST_DIR) fclean
 
 PRINTF:
-	cp -r ../src/ft_printf ./
+	cp -R ../src/ft_printf ./
 	@$(MAKE) --no-print-directory -C $(PRINTF_TEST_DIR) exe_welcome_lite
 	rm -rf ft_printf
 
 GNL:
-	cp -r ../src/get_next_line	./
+	cp -R ../src/get_next_line	./
 	@$(MAKE) --no-print-directory -C $(GNL_TEST_DIR) exe_welcome_lite
 	rm -rf get_next_line
 	
