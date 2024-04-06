@@ -44,7 +44,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/sebastianpenning/libft">
-    <img src="images/logo.png" alt="Logo" width="225" height="150">
+    <img src="resources/images/logo.png" alt="Logo" width="225" height="150">
   </a>
 
   <h3 align="center">libft</h3>
@@ -153,7 +153,7 @@ cp {location}/libft.a {working directory}
 ```
 
 <a href="https://github.com/sebastianpenning/libft">
-  <img src="images/make_libft.png" alt="make_libft" width="1100" height="200">
+  <img src="resources/images/make_libft.png" alt="make_libft" width="1100" height="200">
 </a>
 
 
@@ -164,7 +164,7 @@ cp {location}/libft.a {working directory}
 1. Include libft.h file and libft function in project.
 
 <a href="https://github.com/sebastianpenning/libft">
-  <img src="images/include_libft.png" alt="include_libft" width="800" height="175">
+  <img src="resources/images/include_libft.png" alt="include_libft" width="800" height="175">
 </a>
 
 
@@ -175,7 +175,7 @@ cc -Wall -Werror -Wextra {project_files.c} libft.a && ./a.out
 ```
 
 <a href="https://github.com/sebastianpenning/libft">
-  <img src="images/compile_libft.png" alt="compile_libft" width="1100" height="125">
+  <img src="resources/images/compile_libft.png" alt="compile_libft" width="1100" height="125">
 </a>
 
 
@@ -188,13 +188,13 @@ tests for all files included. In the future memory tests are planned to be added
 1. cd into libft_tester
 
 <a href="https://github.com/sebastianpenning/libft">
-  <img src="images/tester_1.png" alt="include_libft" width="1100" height="120">
+  <img src="resources/images/tester_1.png" alt="include_libft" width="1100" height="120">
 </a>
 
 2. Make tests
 
 <a href="https://github.com/sebastianpenning/libft">
-  <img src="images/tester_2.png" alt="include_libft" width="1100" height="600">
+  <img src="resources/images/tester_2.png" alt="include_libft" width="1100" height="600">
 </a>
 
 <!-- ROADMAP -->
@@ -229,7 +229,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
+<!-- MARKDOWN LINKS & resources/IMAGES -->
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
