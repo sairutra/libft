@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   libft.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/03/21 14:41:59 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/09 18:14:57 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,10 @@ void	*ft_memchr(const void *s, int c, size_t n);
 // if allocation fails. pointer that is returned should later be 
 // freed with free()
 void	*ft_calloc(size_t nmemb, size_t size);
+//This function is used to free a 2d char array, assuming the 2d array
+// is null terminated. 
+void	free_char_array(char **arr);
+
 
 // is functions
 
