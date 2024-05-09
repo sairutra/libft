@@ -21,7 +21,6 @@ $(NAME): $(PRINT_DIR)/$(PRINT_A) $(GNL_DIR)/$(GNL_A) $(LIB_DIR)/$(NAME)
 	mv *.o lib/
 	ar -x lib/$(GNL_A)
 	mv *.o lib/
-	rm get_next_line.a
 	@ar rcs lib/$(NAME) lib/*.o
 	rm lib/*.o
 	rm lib/$(PRINT_A)
