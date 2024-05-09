@@ -6,11 +6,11 @@
 /*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:33:02 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/09 18:13:29 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:19:52 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "../../../../inc/libft.h"
 
 void	free_char_array(char **arr)
 {
