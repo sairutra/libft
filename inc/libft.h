@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/09 18:14:57 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:29:36 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,7 @@ int		ft_printf(const char *format, ...);
 //uses the read system call function, it will remember where it 
 //left of reading in the file descriptor. It can be called with
 // -D BUFFER_SIZE=(int) to increase the buffer size that is read.
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int free_buf);
 
 // bonus functions
 
