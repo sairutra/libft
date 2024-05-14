@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/15 17:23:57 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:53:43 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/15 17:23:57 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/14 21:00:55 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_itoa(int n)
 	ln = n;
 	count_size = size_counter(ln);
 	count_size = count_size + 1;
-	return_str = malloc(sizeof(char) * (count_size + 1));
+	return_str = ft_calloc(sizeof(char), (count_size + 1));
 	if (!return_str)
 		return (NULL);
 	if (n < 0)

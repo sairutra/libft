@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_split.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/12 13:31:02 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:55:36 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/12 13:31:02 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/14 21:01:14 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ char	**ft_split(char const *s, char c)
 	char	**return_arr;
 
 	split_sum = count_words(s, c);
-	return_arr = (char **)malloc(sizeof(char *) * (split_sum + 1));
+	return_arr = (char **)ft_calloc(sizeof(char *), (split_sum + 1));
 	if (return_arr == NULL)
 		return (NULL);
 	return_arr = create_splits(return_arr, s, c, (split_sum));

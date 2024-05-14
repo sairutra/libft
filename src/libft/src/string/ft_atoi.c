@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_atoi.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/10 19:06:39 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:58:00 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/10 19:06:39 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/14 21:00:41 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	detect_plusmignus(char *c_ptr)
 		return (2);
 	if (minus_flag == 0 && plus_flag == 0 && (ft_isdigit(*c_ptr) == 1))
 		return (3);
-	if (minus_flag == 0 && plus_flag == 0 && c_ptr[1] == 0)
+	if (minus_flag == 0 && plus_flag == 0 && c_ptr[0] == 0)
 		return (3);
 	return (4);
 }

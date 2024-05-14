@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strtrim.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/11 19:38:41 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:56:49 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/11 19:38:41 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/14 21:16:49 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		remainder--;
 	}
 	remainder = remainder + 1;
-	s_return = (char *)malloc(remainder);
+	s_return = (char *)ft_calloc(remainder, 1);
 	if (s_return == NULL)
 		return (NULL);
 	ft_strlcpy(s_return, s1_cptr, remainder);

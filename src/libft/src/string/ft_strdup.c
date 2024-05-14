@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strdup.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/10 20:35:22 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:55:46 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/10 20:35:22 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/14 21:16:03 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strdup(const char *s)
 
 	s_cptr = (char *)s;
 	s_len = ft_strlen(s_cptr);
-	ns_vptr = malloc(s_len + 1);
+	ns_vptr = ft_calloc(s_len + 1, 1);
 	ns_cptr = (char *)ns_vptr;
 	if (!ns_cptr)
 		return (NULL);

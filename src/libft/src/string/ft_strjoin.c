@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strjoin.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/11 19:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:55:57 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/11 19:03:23 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/14 21:16:23 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
-	ns_cptr = (char *)malloc((len_s1 + len_s2) + 1);
+	ns_cptr = (char *)ft_calloc((len_s1 + len_s2) + 1, 1);
 	if (ns_cptr == NULL)
 		return (NULL);
 	ft_strlcpy(ns_cptr, s1, len_s1 + 1);
