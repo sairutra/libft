@@ -44,3 +44,5 @@ libft:
 fclean:
 	rm -rf $(LIBFT_A)
 	rm -rf logs
+
+re:	fclean all
