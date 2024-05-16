@@ -1,80 +1,102 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove_test.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 15:07:08 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/16 15:25:03 by spenning         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft_tester.h"
 #include <string.h>
 
-int fail_memmove = 0;
+int	g_fail_memmove = 0;
 
-int memmove_cmp(int test_count, char *test, char *test2, size_t n)
+char	*init_ft_mv(char *test, char *test2, size_t n)
 {
-    FILE 	*errorLog;
-    char *org;
-    char *ft;
-    char *test_alloc;
-    char *test2_alloc;
-    char *test_dub;
-    char *test2_dub;
+	char	*test_dub;
+	char	*test2_dub;
+	char	*ret;
 
-    errorLog = fopen("logs/error_log.txt", "a");
-    if (errorLog == NULL)
-    {   
-        printf("Error opening log file\n");
-        return 1;
-    }
-    test_alloc = strdup(test);
-    test2_alloc = strdup(test2); 
-    test_dub = strdup(test);
-    test2_dub = strdup(test2);
-    if(test_alloc == NULL || test2_alloc == NULL || test2_dub == NULL || test2_dub == NULL)
-    {   
-        if(test_alloc)
-            free(test_alloc);
-        if(test2_alloc)
-            free(test2_alloc);
-        if(test_dub)
-            free(test_dub);
-        if(test2_dub)
-            free(test2_dub);
-        printf("Error with test2_dub\n");
-        return 1;
-    }    
-    org = memmove(test_dub, test2_dub, n);
-    ft = ft_memmove(test_alloc, test2_alloc, n);
-    if(strcmp(org, ft)) 
-    {
-        printf(RED "%d FAIL "RESET, test_count);
-        fprintf(errorLog,"error\n");
-        fprintf(errorLog,"test number: %d\n", test_count);
-        fprintf(errorLog,"test case: %s %s %ld\n", test, test2, n);
-        fprintf(errorLog,"memmove: %s\n", org);
-        fprintf(errorLog,"ft_memmove: %s\n", ft);
-        fprintf(errorLog,"---------\n");
-        fail_memmove += 1;
-    }
-    else
+	test_dub = strdup(test);
+	test2_dub = strdup(test2);
+	if (test_dub == NULL || test2_dub == NULL)
+	{
+		if (test_dub)
+			free(test_dub);
+		if (test2_dub)
+			free(test2_dub);
+		printf("Error with initft\n");
+		return (NULL);
+	}
+	ret = ft_memmove(test_dub, test2_dub, n);
+	free(test2_dub);
+	return (ret);
+}
+
+char	*init_org_mv(char *test, char *test2, size_t n)
+{
+	char	*test_dub;
+	char	*test2_dub;
+	char	*ret;
+
+	test_dub = strdup(test);
+	test2_dub = strdup(test2);
+	if (test_dub == NULL || test2_dub == NULL)
+	{
+		if (test_dub)
+			free(test_dub);
+		if (test2_dub)
+			free(test2_dub);
+		printf("Error with init_org\n");
+		return (NULL);
+	}
+	ret = memmove(test_dub, test2_dub, n);
+	free(test2_dub);
+	return (ret);
+}
+
+int	memmove_cmp(int test_count, char *test, char *test2, size_t n)
+{
+	FILE	*errorlog;
+	char	*org;
+	char	*ft;
+
+	errorlog = fopen("logs/error_log.txt", "a");
+	if (errorlog == NULL)
+	{
+		printf("Error opening log file\n");
+		return (1);
+	}
+	org = init_org_mv(test, test2, n);
+	ft = init_ft_mv(test, test2, n);
+	if (strcmp(org, ft))
+		g_fail_memmove += ft_log_str(test_count, errorlog, org, ft);
+	else
 		printf(GRN "%d OK " RESET, test_count);
-    free(test_dub);
-    free(test2_dub);
-    free(test_alloc);
-    free(test2_alloc);
-    return(test_count + 1);
+	free(org);
+	free(ft);
+	fclose(errorlog);
+	return (test_count + 1);
 }
 
-int memmove_test()
+int	memmove_test(void)
 {
-    int  test_count = 1;
-    printf("\n");
-	printf(BMAG "ft_memmove\n" RESET);
-    test_count = memmove_cmp(test_count, "fnjkdvbs", "scnaocuw9", 2);
-    test_count = memmove_cmp(test_count, "    scnaocuw9/", "    scnaocuw9/", 10);
-    test_count = memmove_cmp(test_count, "fnjkdvbs", "snsicnsk",  4);
-    test_count = memmove_cmp(test_count, "snsicnsk sjknsjanc", "snsicnsk fnjkdvbs",  10);
-    test_count = memmove_cmp(test_count, "fnjkdvbs\n", "fnjkdvbs\n",  0);
-    test_count = memmove_cmp(test_count, "fnjkdvbs\n", "fnjkdvbs\n",  2);
-    test_count = memmove_cmp(test_count, "fnjkdvb0", "fnjkdvb0",  6);
-    test_count = memmove_cmp(test_count, "NULL", "NULL",  0);
-    return(fail_memmove);
+	int	tc;
+
+	tc = 1;
+	printf("\n");
+	printf(BMAG "ft_memcpy\n" RESET);
+	tc = memmove_cmp(tc, "fnjkdvbs", "scnaocuw9", 2);
+	tc = memmove_cmp(tc, "    scnaocuw9/", "    scnaocuw9/", 10);
+	tc = memmove_cmp(tc, "fnjkdvbs", "snsicnsk", 4);
+	tc = memmove_cmp(tc, "snsicnsk sjknsjanc", "snsicnsk fnjkdvbs", 10);
+	tc = memmove_cmp(tc, "fnjkdvbs\n", "fnjkdvbs\n", 0);
+	tc = memmove_cmp(tc, "fnjkdvbs\n", "fnjkdvbs\n", 2);
+	tc = memmove_cmp(tc, "fnjkdvb0", "fnjkdvb0", 6);
+	tc = memmove_cmp(tc, "NULL", "NULL", 0);
+	return (g_fail_memmove);
 }
-
-
-
-
-
