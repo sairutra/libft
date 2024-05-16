@@ -1,60 +1,67 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_istotester.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 13:29:29 by spenning          #+#    #+#             */
+/*   Updated: 2024/05/16 13:34:25 by spenning         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft_tester.h"
 #include <ctype.h>
 
-int fail_isto = 0;
+int	g_fail_isto = 0;
 
-int isto_cmp(int test_count, int c, char *function_name,int (*f)(int), int (*ft)(int))
+int	isto_cmp(int tc, int c, int (*f)(int), int (*ft)(int))
 {
-    FILE *errorLog;
-    int org_func;
-    int ft_func;
+	FILE	*errorlog;
+	int		org_func;
+	int		ft_func;
 
-    errorLog = fopen("logs/error_log.txt", "a");
-    if (errorLog == NULL)
-    {   
-        printf("Error opening log file\n");
-        return 1;
-    }
-
-    org_func = f(c);
-    ft_func = ft(c);
-    if(org_func == 0 && ft_func != 0) 
-    {
-        printf(RED "%d FAIL "RESET, test_count);
-        fprintf(errorLog,"error\n");
-        fprintf(errorLog,"test number: %d\n", test_count);
-        fprintf(errorLog,"test case: %d\n", c);
-        fprintf(errorLog,"%s: %c\n", function_name + 3,org_func);
-        fprintf(errorLog,"%s: %c\n", function_name,ft_func);
-        fprintf(errorLog,"---------\n");
-        fail_isto += 1;
-    }
-    else
-        printf(GRN "%d OK " RESET, test_count);
-    return(test_count + 1);
+	errorlog = fopen("logs/error_log.txt", "a");
+	if (errorlog == NULL)
+	{
+		printf("Error opening log file\n");
+		return (1);
+	}
+	org_func = f(c);
+	ft_func = ft(c);
+	if (org_func == 0 && ft_func != 0)
+	{
+		printf(RED "%d FAIL "RESET, tc);
+		fprintf(errorlog, "error\n");
+		fprintf(errorlog, "test number: %d\n", tc);
+		fprintf(errorlog, "test case: %d\n", c);
+		fprintf(errorlog, "---------\n");
+		g_fail_isto += 1;
+	}
+	else
+		printf(GRN "%d OK " RESET, tc);
+	fclose(errorlog);
+	return (tc + 1);
 }
 
-int isto_test(char * function_name, int (*f)(int), int (*ft)(int))
+int	isto_test(char *function_name, int (*f)(int), int (*ft)(int))
 {
-    int  test_count = 1;
-    printf("\n");
+	int	test_count;
+
+	test_count = 1;
+	printf("\n");
 	printf(BMAG "%s\n", function_name);
-    printf(RESET);
-    test_count = isto_cmp(test_count, 'a', function_name, f, ft);
-    test_count = isto_cmp(test_count, 'A', function_name, f, ft);
-    test_count = isto_cmp(test_count, 'z', function_name, f, ft);
-    test_count = isto_cmp(test_count, '\n', function_name, f, ft);
-    test_count = isto_cmp(test_count, '\200', function_name, f, ft);
-    test_count = isto_cmp(test_count, '\100', function_name, f, ft);
-    test_count = isto_cmp(test_count, 359, function_name, f, ft);
-    test_count = isto_cmp(test_count, 255, function_name, f, ft);
-    test_count = isto_cmp(test_count, '"', function_name, f, ft);
-    test_count = isto_cmp(test_count, ' ', function_name, f, ft);
-    test_count = isto_cmp(test_count, 1243, function_name, f, ft);
-    return(fail_isto);
+	printf(RESET);
+	test_count = isto_cmp(test_count, 'a', f, ft);
+	test_count = isto_cmp(test_count, 'A', f, ft);
+	test_count = isto_cmp(test_count, 'z', f, ft);
+	test_count = isto_cmp(test_count, '\n', f, ft);
+	test_count = isto_cmp(test_count, '\200', f, ft);
+	test_count = isto_cmp(test_count, '\100', f, ft);
+	test_count = isto_cmp(test_count, 359, f, ft);
+	test_count = isto_cmp(test_count, 255, f, ft);
+	test_count = isto_cmp(test_count, '"', f, ft);
+	test_count = isto_cmp(test_count, ' ', f, ft);
+	test_count = isto_cmp(test_count, 1243, f, ft);
+	return (g_fail_isto);
 }
-
-
-
-
-
