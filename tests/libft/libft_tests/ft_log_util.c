@@ -6,13 +6,13 @@
 /*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:21:40 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/16 13:18:11 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:54:45 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft_tester.h"
 
-int ft_log_chr(int test_count, FILE *errorlog, char ro, char rft)
+int	ft_log_chr(int test_count, FILE *errorlog, char ro, char rft)
 {
 	printf(RED "%d FAIL "RESET, test_count);
 	fprintf(errorlog, "error\n");
@@ -23,7 +23,7 @@ int ft_log_chr(int test_count, FILE *errorlog, char ro, char rft)
 	return (1);
 }
 
-int ft_log_str(int test_count, FILE *errorlog, char* ro, char* rft)
+int	ft_log_str(int test_count, FILE *errorlog, char *ro, char *rft)
 {
 	printf(RED "%d FAIL "RESET, test_count);
 	fprintf(errorlog, "error\n");
@@ -34,7 +34,7 @@ int ft_log_str(int test_count, FILE *errorlog, char* ro, char* rft)
 	return (1);
 }
 
-int ft_log_int(int test_count, FILE *errorlog, int result_org, int result_ft)
+int	ft_log_int(int test_count, FILE *errorlog, int result_org, int result_ft)
 {
 	printf(RED "%d FAIL "RESET, test_count);
 	fprintf(errorlog, "error\n");
