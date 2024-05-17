@@ -1,48 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim_test.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 06:51:07 by mynodeus          #+#    #+#             */
+/*   Updated: 2024/05/17 06:52:57 by mynodeus         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft_tester.h"
 #include <string.h>
 
-int fail_strtrim = 0;
+int	g_fail_strtrim = 0;
 
-int strtrim_cmp(int test_count, char *test, char *ch, char *result)
+int	strtrim_cmp(int test_count, char *test1, char *test2, char *result)
 {
-    FILE 	*errorLog;
-    char * result_ft;
+	FILE	*errorlog;
+	char	*ft;
 
-    errorLog = fopen("logs/error_log.txt", "a");
-    if (errorLog == NULL)
-    {
-        printf("Error opening log file\n");
-        return 1;
-    }
-    result_ft = ft_strtrim(test, ch);
-    if(strcmp(result, result_ft)) 
-    {
-        printf(RED "%d FAIL "RESET, test_count);
-        fprintf(errorLog,"error\n");
-        fprintf(errorLog,"test number: %d\n", test_count);
-        fprintf(errorLog,"test case: %s char: %s\n", test, ch);
-        fprintf(errorLog,"expected: %s\n", result);
-        fprintf(errorLog,"ft_strtrim: %s\n", result_ft);
-        fprintf(errorLog,"---------\n");
-        fail_strtrim += 1;
-    }
-    else
+	errorlog = fopen("logs/error_log.txt", "a");
+	if (errorlog == NULL)
+	{
+		printf("Error opening log file\n");
+		return (1);
+	}
+	ft = ft_strtrim(test1, test2);
+	if (strcmp(ft, result))
+		g_fail_strtrim += ft_log_str(test_count, errorlog, result, ft);
+	else
 		printf(GRN "%d OK " RESET, test_count);
-	free(result_ft);
-    return(test_count + 1);
+	free(ft);
+	return (test_count + 1);
 }
 
-int strtrim_test()
+int	strtrim_test(void)
 {
-    int  test_count = 1;
+	int	tc;
 
-    printf("\n");
+	tc = 1;
+	printf("\n");
 	printf(BMAG "ft_strtrim\n" RESET);
-    test_count = strtrim_cmp(test_count, "aaaaaabaaaaaa", "a", "b");
-    test_count = strtrim_cmp(test_count, "bobobbocobedbobobbobob!", "!", "bobobbocobedbobobbobob");
-    test_count = strtrim_cmp(test_count, "a", "b", "a");
-    test_count = strtrim_cmp(test_count, "aaaaaabbbbcbbbbaaaaaa", "ab", "c");
-    return(fail_strtrim);
+	tc = strtrim_cmp(tc, "aaaaaabaaaaaa", "a", "b");
+	tc = strtrim_cmp(tc, "bobobbocobedbobobbo!", "!", "bobobbocobedbobobbo");
+	tc = strtrim_cmp(tc, "a", "b", "a");
+	tc = strtrim_cmp(tc, "aaaaaabbbbcbbbbaaaaaa", "ab", "c");
+	return (g_fail_strtrim);
 }
-
-
