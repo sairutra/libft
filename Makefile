@@ -1,39 +1,31 @@
 LIB_DIR = src/libft
 PRINT_DIR = src/ft_printf
 GNL_DIR = src/get_next_line
+LIB = lib
 
 PRINT_A = libftprintf.a
 GNL_A = get_next_line.a
 NAME = libft.a
+LIBFT = lib/libft.a
 
+all: $(LIB) $(LIBFT)
 
-all: directory $(NAME)
-
-
-directory:
+$(LIB):
 	mkdir -p lib
 	
-$(NAME): $(PRINT_DIR)/$(PRINT_A) $(GNL_DIR)/$(GNL_A) $(LIB_DIR)/$(NAME) 
-	cp $(PRINT_DIR)/lib/$(PRINT_A) lib
-	cp $(GNL_DIR)/lib/$(GNL_A) lib
-	cp $(LIB_DIR)/lib/$(NAME) lib
-	ar -x lib/$(PRINT_A)
-	mv *.o lib/
-	ar -x lib/$(GNL_A)
-	mv *.o lib/
-	@ar rcs lib/$(NAME) lib/*.o
-	rm lib/*.o
-	rm lib/$(PRINT_A)
-	@rm lib/$(GNL_A)
+$(LIBFT): $(NAME) 
+
+$(NAME): $(GNL_DIR)/$(GNL_A) $(PRINT_DIR)/$(PRINT_A) $(LIB_DIR)/$(NAME) 
+	@if [ ! -f $(LIBFT) ]; then cp $(PRINT_DIR)/lib/$(PRINT_A) lib; cp $(GNL_DIR)/lib/$(GNL_A) lib; cp $(LIB_DIR)/$(NAME) lib; ar -x lib/$(PRINT_A); mv *.o lib/; ar -x lib/$(GNL_A); mv *.o lib/; ar rcs lib/$(NAME) lib/*.o; rm lib/*.o; rm lib/$(PRINT_A); rm lib/$(GNL_A); fi
 
 $(PRINT_DIR)/$(PRINT_A): 
-	@$(MAKE) -C $(PRINT_DIR) all
+	@$(MAKE) -C $(PRINT_DIR) all --no-print-directory
 
 $(GNL_DIR)/$(GNL_A):
-	@$(MAKE) -C $(GNL_DIR) all
+	@$(MAKE) -C $(GNL_DIR) all --no-print-directory
 
 $(LIB_DIR)/$(NAME):
-	@$(MAKE) -C $(LIB_DIR) all
+	@$(MAKE) -C $(LIB_DIR) all --no-print-directory
 
 clean:
 	@$(MAKE) -C $(PRINT_DIR) clean
