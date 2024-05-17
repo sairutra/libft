@@ -1,48 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr_test.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 06:51:07 by mynodeus          #+#    #+#             */
+/*   Updated: 2024/05/17 06:58:46 by mynodeus         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft_tester.h"
 #include <string.h>
 
-int fail_substr = 0;
+int		g_fail_substr = 0;
+char	*g_result = NULL;
 
-int substr_cmp(int test_count, char *test, unsigned int start, size_t n, char * result)
+int	substr_cmp(int test_count, char *test1, int start, size_t len)
 {
-    FILE 	*errorLog;
-    char * result_ft;
+	FILE	*errorlog;
+	char	*ft;
 
-    errorLog = fopen("logs/error_log.txt", "a");
-    if (errorLog == NULL)
-    {
-        printf("Error opening log file\n");
-        return 1;
-    }
-    result_ft = ft_substr(test, start, n);
-    if(strcmp(result_ft, result)) 
-    {
-        printf(RED "%d FAIL "RESET, test_count);
-        fprintf(errorLog,"error\n");
-        fprintf(errorLog,"test number: %d\n", test_count);
-        fprintf(errorLog,"test case: %s start: %d n: %zu\n", test, start, n);
-        fprintf(errorLog,"expected: %s\n", result);
-        fprintf(errorLog,"ft_substr: %s\n", result_ft);
-        fprintf(errorLog,"---------\n");
-        fail_substr += 1;
-    }
-    else
+	errorlog = fopen("logs/error_log.txt", "a");
+	if (errorlog == NULL)
+	{
+		printf("Error opening log file\n");
+		return (1);
+	}
+	ft = ft_substr(test1, start, len);
+	if (strcmp(ft, g_result))
+		g_fail_substr += ft_log_str(test_count, errorlog, g_result, ft);
+	else
 		printf(GRN "%d OK " RESET, test_count);
-    return(test_count + 1);
+	free(ft);
+	return (test_count + 1);
 }
 
-int substr_test()
+int	substr_test(void)
 {
-    int  test_count = 1;
+	int	test_count;
 
-    printf("\n");
+	test_count = 1;
+	printf("\n");
 	printf(BMAG "ft_substr\n" RESET);
-    test_count = substr_cmp(test_count, "nfdsnkjdsnciudsbccknd?cbdscds", 5, 8, "kjdsnciu");
-    test_count = substr_cmp(test_count, "bobobbocobedbobobbobob!", 0, 23, "bobobbocobedbobobbobob!");
-    // test_count = substr_cmp(test_count, "a", 2, 5, NULL);
-    test_count = substr_cmp(test_count, "dfsfdsf???cbdscds", 2, 14,"sfdsf???cbdscd");
-    return(fail_substr);
+	g_result = "kjdsnciu";
+	test_count = substr_cmp(test_count, "nfdsnkjdsnciudsbccknd?cbdscds", 5, 8);
+	g_result = "bobobbocobedbobobbobob!";
+	test_count = substr_cmp(test_count, "bobobbocobedbobobbobob!", 0, 23);
+	g_result = "sfdsf???cbdscd";
+	test_count = substr_cmp(test_count, "dfsfdsf???cbdscds", 2, 14);
+	return (g_fail_substr);
 }
-
-
-
