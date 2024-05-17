@@ -1,47 +1,86 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy_test.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 06:01:09 by mynodeus          #+#    #+#             */
+/*   Updated: 2024/05/17 06:26:33 by mynodeus         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft_tester.h"
 #include <bsd/string.h>
 
-int fail_strlcpy = 0;
+int	g_fail_strlcpy = 0;
 
-int strlcpy_cmp(int test_count, char *test1, char *test2, char* result, size_t n)
+int	strlift(char *output, char *test, char *test2, size_t n)
 {
-    FILE 	*errorLog;
-    size_t result_ft;
-	size_t result_org;
-	char * test1_dub_org = strdup(test1);
-	char * test2_dub_org = strdup(test2);
-	char * test1_dub_ft = strdup(test1);
-	char * test2_dub_ft = strdup(test2);
+	char	*test2_dub;
+	size_t	ret;
 
-
-    errorLog = fopen("logs/error_log.txt", "a");
-    if (errorLog == NULL)
-    {
-        printf("Error opening log file\n");
-        return 1;
-    }
-    result_org = strlcpy(test1_dub_org, test2_dub_org, n);
-	result_ft = ft_strlcpy(test1_dub_ft, test2_dub_ft, n);
-    if(result_ft != result_org && strcmp(test1_dub_org, test1_dub_ft)) 
-    {
-        printf(RED "%d FAIL "RESET, test_count);
-        fprintf(errorLog,"error\n");
-        fprintf(errorLog,"test number: %d\n", test_count);
-        fprintf(errorLog,"test case: %s %s\n", test1, test2);
-        fprintf(errorLog,"n: %zu\n", n);
-        fprintf(errorLog,"result: %s\n", result);
-        fprintf(errorLog,"ft_strlcpy: %zu\n", result_ft);
-        fprintf(errorLog,"---------\n");
-        fail_strlcpy += 1;
-    }
-    else
-		printf(GRN "%d OK " RESET, test_count);
-	free(test1_dub_org);
-	free(test2_dub_org);
-	free(test1_dub_ft);
-	free(test2_dub_ft);
-    return(test_count + 1);
+	output = strdup(test);
+	test2_dub = strdup(test2);
+	if (output == NULL || test2_dub == NULL)
+	{
+		if (output)
+			free(output);
+		if (test2_dub)
+			free(test2_dub);
+		printf("Error with initft\n");
+		return (0);
+	}
+	ret = ft_strlcpy(output, test2_dub, n);
+	free(test2_dub);
+	return (ret);
 }
+
+int	strliorg(char *output, char *test, char *test2, size_t n)
+{
+	char	*test2_dub;
+	size_t	ret;
+
+	output = strdup(test);
+	test2_dub = strdup(test2);
+	if (output == NULL || test2_dub == NULL)
+	{
+		if (output)
+			free(output);
+		if (test2_dub)
+			free(test2_dub);
+		printf("Error with initft\n");
+		return (0);
+	}
+	ret = strlcpy(output, test2_dub, n);
+	free(test2_dub);
+	return (ret);
+}
+
+int	strlcpy_cmp(int test_count, char *t1, char *t2, size_t n)
+{
+	FILE	*errorlog;
+	char	*org;
+	char	*ft;
+
+	org = NULL;
+	ft = NULL;
+	errorlog = fopen("logs/error_log.txt", "a");
+	if (errorlog == NULL)
+	{
+		printf("Error opening log file\n");
+		return (1);
+	}
+	if (strlift(ft, t1, t2, n) != strliorg(org, t1, t2, n) && strcmp(org, ft))
+		g_fail_strlcpy += ft_log_str(test_count, errorlog, org, ft);
+	else
+		printf(GRN "%d OK " RESET, test_count);
+	free(org);
+	free(ft);
+	fclose(errorlog);
+	return (test_count + 1);
+}
+
 
 int strlcpy_test()
 {
@@ -49,13 +88,13 @@ int strlcpy_test()
 
     printf("\n");
 	printf(BMAG "ft_strlcpy\n" RESET);
-    test_count = strlcpy_cmp(test_count, "nfdsnkjd", "dlksadbs", "nfdsnkjddlksadbs", 16);
-    test_count = strlcpy_cmp(test_count, "bobobbocob", "dlksadbs", "bobobbocobdlksadbs", 18);
-    test_count = strlcpy_cmp(test_count, "a", "b", "ab", 2);
-    test_count = strlcpy_cmp(test_count, "dfsfdsf?", "??cbdscds", "dfsfdsf???cbdscds", 17);
-    test_count = strlcpy_cmp(test_count, "", "", "", 0);
-    test_count = strlcpy_cmp(test_count, " ", " ", "  ", 2);
-    return(fail_strlcpy);
+    test_count = strlcpy_cmp(test_count, "nfdsnkjd", "dlksadbs", 16);
+    test_count = strlcpy_cmp(test_count, "bobobbocob", "dlksadbs", 18);
+    test_count = strlcpy_cmp(test_count, "a", "b", 2);
+    test_count = strlcpy_cmp(test_count, "dfsfdsf?", "??cbdscds", 17);
+    test_count = strlcpy_cmp(test_count, "", "", 0);
+    test_count = strlcpy_cmp(test_count, " ", " ", 2);
+    return(g_fail_strlcpy);
 }
 
 
