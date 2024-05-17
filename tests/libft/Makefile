@@ -12,7 +12,10 @@ SRCDIR = ../../src/libft
 
 SOURCES     := $(shell find $(SRCDIR) -type f -name "*.c")
 
-NORMINETTE = ../norminette_tester/norminette.c
+NORMINETTE = norminette_tester.sh
+NORMDIR    = -d ../../src/libft
+NORM_NO_PR = -npi
+
 
 all: test
 
@@ -26,8 +29,7 @@ tests:
 	rm a.out
 
 norminette:
-	cc -Wall -Werror -Wextra $(NORMINETTE) && ./a.out $(SOURCES)
-	rm a.out
+	cd ../norminette_tester && bash $(NORMINETTE) $(NORMDIR)
 
 welcome:
 	cc -Wall -Werror -Wextra $(WELCOME) && ./a.out

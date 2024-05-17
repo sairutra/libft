@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/11 21:29:36 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/17 19:36:13 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,6 @@ void	*ft_calloc(size_t nmemb, size_t size);
 //This function is used to free a 2d char array, assuming the 2d array
 // is null terminated. 
 void	free_char_array(char **arr);
-
 
 // is functions
 
