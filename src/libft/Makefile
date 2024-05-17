@@ -1,3 +1,5 @@
+include sources.mk
+
 #Compiler and Linker
 CC          := cc
 
@@ -17,7 +19,7 @@ CFLAGS      := -Wall -Werror -Wextra
 #---------------------------------------------------------------------------------
 #DO NOT EDIT BELOW THIS LINE
 #---------------------------------------------------------------------------------
-SOURCES     := $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
+# SOURCES     := $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
 OBJECTS     := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.$(OBJEXT)))
 
 #Default Make
@@ -42,7 +44,7 @@ fclean: clean
 #Link
 $(TARGET): $(OBJECTS) 
 	@ar rcs $(TARGET) $(OBJECTS)
-	@if [ ! -f $(TARGET) ]; ar rcs $(TARGET) $(OBJECTS); then mv $(TARGET) $(TARGETDIR)/`; fi
+	@if [ ! -f $(TARGETDIR)/$(TARGET) ]; then ar rcs $(TARGET) $(OBJECTS); mv $(TARGET) $(TARGETDIR)/; else rm -rf libft.a;fi
 
 #Compile
 $(BUILDDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT)

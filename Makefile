@@ -16,7 +16,7 @@ $(LIB):
 $(LIBFT): $(NAME) 
 
 $(NAME): $(GNL_DIR)/$(GNL_A) $(PRINT_DIR)/$(PRINT_A) $(LIB_DIR)/$(NAME) 
-	@if [ ! -f $(LIBFT) ]; then cp $(PRINT_DIR)/lib/$(PRINT_A) lib; cp $(GNL_DIR)/lib/$(GNL_A) lib; cp $(LIB_DIR)/$(NAME) lib; ar -x lib/$(PRINT_A); mv *.o lib/; ar -x lib/$(GNL_A); mv *.o lib/; ar rcs lib/$(NAME) lib/*.o; rm lib/*.o; rm lib/$(PRINT_A); rm lib/$(GNL_A); fi
+	@if [ ! -f $(LIBFT) ]; then cp $(PRINT_DIR)/lib/$(PRINT_A) lib; cp $(GNL_DIR)/lib/$(GNL_A) lib; cp $(LIB_DIR)/lib/$(NAME) lib; ar -x lib/$(PRINT_A); mv *.o lib/; ar -x lib/$(GNL_A); mv *.o lib/; ar rcs lib/$(NAME) lib/*.o; rm lib/*.o; rm lib/$(PRINT_A); rm lib/$(GNL_A); fi
 
 $(PRINT_DIR)/$(PRINT_A): 
 	@$(MAKE) -C $(PRINT_DIR) all --no-print-directory
