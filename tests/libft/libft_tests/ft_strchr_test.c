@@ -6,7 +6,7 @@
 /*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 05:44:11 by mynodeus          #+#    #+#             */
-/*   Updated: 2024/05/17 05:48:26 by mynodeus         ###   ########.fr       */
+/*   Updated: 2024/05/17 05:50:43 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int	strchr_cmp(int test_count, char *test, int ch)
 	org = strchr(test, ch);
 	ft = ft_strchr(test, ch);
 	if (org != ft)
-	{
 		g_fail_strchr += ft_log_str(test_count, errorlog, org, ft);
-	}
 	else
 		printf(GRN "%d OK " RESET, test_count);
 	return (test_count + 1);
