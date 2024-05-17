@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:08:13 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/16 17:21:27 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/17 05:19:59 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@ int	compare_files(int test_count, char test)
 {
 	int		line;
 	int		col;
-	char	s;
 	FILE	*fptr;
 	FILE	*errorlog;
 
-	s = '0';
 	fptr = fopen("libft_tests/putchar_ft.txt", "r");
 	errorlog = fopen("logs/error_log.txt", "a");
 	if (fptr == NULL || errorlog == NULL)
