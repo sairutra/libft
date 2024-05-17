@@ -1,54 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr_test.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 06:27:38 by mynodeus          #+#    #+#             */
+/*   Updated: 2024/05/17 06:48:52 by mynodeus         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft_tester.h"
-#include <string.h>
+#include <bsd/string.h>
 
-// this tester could be joined together with ft_strchr with function pointers
+int	g_fail_strrchr = 0;
 
-int fail_strrchr = 0;
-
-int strrchr_cmp(int test_count, char *test, int ch)
+int	strrchr_cmp(int test_count, char *test1, char test2)
 {
-    FILE 	*errorLog;
-    char * result_org;
-    char * result_ft;
+	FILE	*errorlog;
+	char	*ft;
+	char	*org;
 
-    errorLog = fopen("logs/error_log.txt", "a");
-    if (errorLog == NULL)
-    {
-        printf("Error opening log file\n");
-        return 1;
-    }
-    result_org = strrchr(test, ch);
-    result_ft = ft_strrchr(test, ch);
-    if(result_org != result_ft) 
-    {
-        printf(RED "%d FAIL "RESET, test_count);
-        fprintf(errorLog,"error\n");
-        fprintf(errorLog,"test number: %d\n", test_count);
-        fprintf(errorLog,"test case: %s char: %c\n", test, ch);
-        fprintf(errorLog,"strrchr: %s\n", result_org);
-        fprintf(errorLog,"&strrchr: %p\n", result_org);
-        fprintf(errorLog,"ft_strrchr: %s\n", result_ft);
-        fprintf(errorLog,"&ft_strrchr: %p\n", result_ft);
-        fprintf(errorLog,"---------\n");
-        fail_strrchr += 1;
-    }
-    else
+	errorlog = fopen("logs/error_log.txt", "a");
+	if (errorlog == NULL)
+	{
+		printf("Error opening log file\n");
+		return (1);
+	}
+	org = strrchr(test1, test2);
+	ft = ft_strrchr(test1, test2);
+	if (ft != org)
+		g_fail_strrchr += ft_log_str(test_count, errorlog, org, ft);
+	else
 		printf(GRN "%d OK " RESET, test_count);
-    return(test_count + 1);
+	return (test_count + 1);
 }
 
-int strrchr_test()
+int	strrchr_test(void)
 {
-    int  test_count = 1;
+	int	test_count;
 
-    printf("\n");
+	test_count = 1;
+	printf("\n");
 	printf(BMAG "ft_strrchr\n" RESET);
-    test_count = strrchr_cmp(test_count, "nfdsnkjdsnciudsbccknd?cbdscds", '?');
-    test_count = strrchr_cmp(test_count, "bobobbocobedbobobbobob!", '!');
-    test_count = strrchr_cmp(test_count, "a", 'b');
-    test_count = strrchr_cmp(test_count, "dfsfdsf???cbdscds", '?');
-    test_count = strrchr_cmp(test_count, "sdncdskj nkjsanckjdsncj\ndkj", '\n');
-    return(fail_strrchr);
+	test_count = strrchr_cmp(test_count, "nfdsnkjdsnciudsbccknd?cbdscds", '?');
+	test_count = strrchr_cmp(test_count, "bobobbocobedbobobbobob!", '!');
+	test_count = strrchr_cmp(test_count, "a", 'b');
+	test_count = strrchr_cmp(test_count, "dfsfdsf???cbdscds", '?');
+	test_count = strrchr_cmp(test_count, "sdncdskj nkjsanckjdsncj\ndkj", '\n');
+	return (g_fail_strrchr);
 }
-
-
