@@ -6,7 +6,7 @@
 /*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 06:01:09 by mynodeus          #+#    #+#             */
-/*   Updated: 2024/05/17 06:26:33 by mynodeus         ###   ########.fr       */
+/*   Updated: 2024/05/17 07:02:19 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,18 @@ int	strlcpy_cmp(int test_count, char *t1, char *t2, size_t n)
 	return (test_count + 1);
 }
 
-
-int strlcpy_test()
+int	strlcpy_test(void)
 {
-    int  test_count = 1;
+	int	test_count;
 
-    printf("\n");
+	test_count = 1;
+	printf("\n");
 	printf(BMAG "ft_strlcpy\n" RESET);
-    test_count = strlcpy_cmp(test_count, "nfdsnkjd", "dlksadbs", 16);
-    test_count = strlcpy_cmp(test_count, "bobobbocob", "dlksadbs", 18);
-    test_count = strlcpy_cmp(test_count, "a", "b", 2);
-    test_count = strlcpy_cmp(test_count, "dfsfdsf?", "??cbdscds", 17);
-    test_count = strlcpy_cmp(test_count, "", "", 0);
-    test_count = strlcpy_cmp(test_count, " ", " ", 2);
-    return(g_fail_strlcpy);
+	test_count = strlcpy_cmp(test_count, "nfdsnkjd", "dlksadbs", 16);
+	test_count = strlcpy_cmp(test_count, "bobobbocob", "dlksadbs", 18);
+	test_count = strlcpy_cmp(test_count, "a", "b", 2);
+	test_count = strlcpy_cmp(test_count, "dfsfdsf?", "??cbdscds", 17);
+	test_count = strlcpy_cmp(test_count, "", "", 0);
+	test_count = strlcpy_cmp(test_count, " ", " ", 2);
+	return (g_fail_strlcpy);
 }
-
-
-
-
-

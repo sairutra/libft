@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_tester.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/16 13:18:42 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/17 07:00:51 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	strnstr_test(void);
 int	strrchr_test(void);
 int	substr_test(void);
 int	strtrim_test(void);
-int ft_log_int(int test_count, FILE *errorlog, int result_org, int result_ft);
-int ft_log_str(int test_count, FILE *errorlog, char* ro, char* rft);
-int ft_log_chr(int test_count, FILE *errorlog, char ro, char rft);
+int	ft_log_int(int test_count, FILE *errorlog, int result_org, int result_ft);
+int	ft_log_str(int test_count, FILE *errorlog, char *ro, char *rft);
+int	ft_log_chr(int test_count, FILE *errorlog, char ro, char rft);
 #endif
