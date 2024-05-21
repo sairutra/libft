@@ -41,4 +41,5 @@ SOURCES = ./src/string/ft_strlcat.c \
 ./src/write/ft_putstr_fd.c \
 ./src/write/ft_putendl_fd.c \
 ./src/write/ft_putchar_fd.c \
-./src/write/ft_putnbr_fd.c 
+./src/write/ft_putnbr_fd.c \
+./src/debug/debug.c
