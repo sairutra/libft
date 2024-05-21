@@ -6,7 +6,7 @@
 /*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/21 15:30:42 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:34:40 by spenning         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,6 +221,21 @@ int		ft_printf(const char *format, ...);
 //left of reading in the file descriptor. It can be called with
 // -D BUFFER_SIZE=(int) to increase the buffer size that is read.
 char	*get_next_line(int fd, int free_buf);
+
+// debug
+
+//[Description]
+//This function used to debug, if during compilation the debug flag is used
+// parameters are the same as ft_printf
+// with -D DEBUG=1
+//[Parameters]
+//char *format
+//variables
+//[Return]
+//function returns nothing
+//[Error]
+// No error value
+void	ft_debug(char *format, ...);
 
 // bonus functions
 
