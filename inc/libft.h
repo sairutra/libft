@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/21 15:34:40 by spenning         ###   ########.fr       */
+/*   Updated: 2024/05/30 21:53:34 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,6 +236,11 @@ char	*get_next_line(int fd, int free_buf);
 //[Error]
 // No error value
 void	ft_debug(char *format, ...);
+
+// test
+# include <stdarg.h>
+typedef void (*func_ptr)(va_list);
+int ft_time(func_ptr func, ...);
 
 // bonus functions
 
