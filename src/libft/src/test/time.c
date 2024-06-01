@@ -6,7 +6,7 @@
 /*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:10:24 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/30 21:53:43 by mynodeus         ###   ########.fr       */
+/*   Updated: 2024/06/01 09:21:05 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@
 # define WHT   "\x1B[37m"
 # define RESET "\x1B[0m"
 
+// acknowledgement https://medium.com/geekculture/rdtsc-the-only-way-to-benchmark-fc84562ef734
+
 enum { NS_PER_SECOND = 1000000000 };
 
+int g_timing = 0;
 
 void sub_timespec(struct timespec t1, struct timespec t2, struct timespec *td)
 {
@@ -53,29 +56,35 @@ void sub_timespec(struct timespec t1, struct timespec t2, struct timespec *td)
 	}
 }
 
-
-int ft_time(func_ptr func, ...)
+int ft_time()
 {
-	struct tms before, after;
+	static struct tms before;
+	struct tms after;
 	double systime;
 	double usrtime;
 	clock_t resolution = sysconf(_SC_CLK_TCK);
-	struct timespec start, finish, delta;
-	va_list args;
-	va_start(args, func);
+	static struct timespec start;
+	struct timespec finish;
+	struct timespec delta;
  
-	clock_gettime(CLOCK_REALTIME, &start);
-	times(&before); 
-	func(args);
-	clock_gettime(CLOCK_REALTIME, &finish);
-	times(&after);
-	systime = (double)(after.tms_stime-before.tms_stime) / resolution;
-	usrtime = (double)(after.tms_utime-before.tms_utime) / resolution;
-	sub_timespec(start, finish, &delta);
-	printf(BCYN "SYS TIME: %f\n" RESET, systime);
-	printf(BCYN "USR TIME: %f\n" RESET, usrtime);
-	printf(BCYN "REA TIME: %d.%.9ld\n" RESET, (int)delta.tv_sec, delta.tv_nsec);
-	va_end(args);
+	if (g_timing == 0)
+	{
+		clock_gettime(CLOCK_REALTIME, &start);
+		times(&before);
+		g_timing = 1; 
+	}
+	else
+	{
+		clock_gettime(CLOCK_REALTIME, &finish);
+		times(&after);
+		systime = (double)(after.tms_stime-before.tms_stime) / resolution;
+		usrtime = (double)(after.tms_utime-before.tms_utime) / resolution;
+		sub_timespec(start, finish, &delta);
+		printf(BCYN "SYS TIME: %f\n" RESET, systime);
+		printf(BCYN "USR TIME: %f\n" RESET, usrtime);
+		printf(BCYN "REA TIME: %d.%.9ld\n" RESET, (int)delta.tv_sec, delta.tv_nsec);
+		g_timing = 0;
+	}
 	return (0);
 }
 
