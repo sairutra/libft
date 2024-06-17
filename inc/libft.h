@@ -6,7 +6,7 @@
 /*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/06/17 14:37:03 by mynodeus      ########   odam.nl         */
+/*   Updated: 2024/06/17 16:16:07 by mynodeus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,6 +256,7 @@ char	*get_next_line(int fd, int free_buf);
 void	ft_debug(char *format, ...);
 
 // test
+
 //[Description]
 //This function is used to time code. This function should be called twice, 
 // first time to start time registration, second time after code that has to be
@@ -270,6 +271,44 @@ void	ft_debug(char *format, ...);
 //[Error]
 // No error value
 t_time	ft_time(int rtype);
+
+// io
+
+//[Description]
+//This function is used to create a file based on path
+//[Parameters]
+//char *path
+//[Return]
+//function returns value for succesful operation
+// 0 == succesful operation
+//[Error]
+// 1 == error
+int	ft_create_file(char *path);
+//[Description]
+//This function checks if a file exists. This works for 
+//both files and directories, because directories are also
+//files in linux
+//[Parameters]
+//char *path
+//[Return]
+//function returns value for if file exists or not
+// 0 == file exists
+// 1 == file does not exist
+//[Error]
+// no error value
+int	ft_check_file(char *path);
+//[Description]
+//This function tries to create a directory.
+//[Parameters]
+//char *path
+//[Return]
+//function returns value for succesful operation
+// 0 == succesful operation
+//[Error]
+// 1 == error
+// mkdir function failed or directory already exists.
+// check with ft_check_file function.
+int	ft_create_dir(char *path);
 
 // bonus functions
 
