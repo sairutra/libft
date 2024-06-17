@@ -6,22 +6,11 @@
 /*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/12 18:10:24 by spenning      #+#    #+#                 */
-/*   Updated: 2024/06/17 14:00:28 by mynodeus      ########   odam.nl         */
+/*   Updated: 2024/06/17 14:31:37 by mynodeus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../inc/libft.h"
-
-#include <time.h>
-#include <sys/times.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <dirent.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <errno.h>
-#include <stdio.h>
-#include <stdarg.h>
 
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[1;32m"
@@ -57,21 +46,37 @@ void	sub_ts(struct timespec t1, struct timespec t2, struct timespec *td)
 	}
 }
 
-void	ft_time_print(struct tms *a, struct tms *b, struct timespec *d)
+t_time	ft_construct_time(struct tms a, struct tms b, struct timespec d)
+{
+	double	systime;
+	double	usrtime;
+	clock_t	resolution;
+	t_time	time;
+
+	resolution = sysconf(_SC_CLK_TCK);
+	systime = (double)(a.tms_stime - b.tms_stime) / resolution;
+	usrtime = (double)(a.tms_utime - b.tms_utime) / resolution;
+	time.systime = systime;
+	time.usrtime = usrtime;
+	time.d = d;
+	return (time);
+}
+
+void	ft_time_print(struct tms a, struct tms b, struct timespec d)
 {
 	double	systime;
 	double	usrtime;
 	clock_t	resolution;
 
 	resolution = sysconf(_SC_CLK_TCK);
-	systime = (double)(a->tms_stime - b->tms_stime) / resolution;
-	usrtime = (double)(a->tms_utime - b->tms_utime) / resolution;
+	systime = (double)(a.tms_stime - b.tms_stime) / resolution;
+	usrtime = (double)(a.tms_utime - b.tms_utime) / resolution;
 	printf(BCYN "SYS TIME: %f\n" RESET, systime);
 	printf(BCYN "USR TIME: %f\n" RESET, usrtime);
-	printf(BCYN "REA TIME: %d.%.9ld\n" RESET, (int)d->tv_sec, d->tv_nsec);
+	printf(BCYN "REA TIME: %d.%.9ld\n" RESET, (int)d.tv_sec, d.tv_nsec);
 }
 
-int	ft_time(void)
+t_time	ft_time(int rtype)
 {
 	static struct tms		before;
 	struct tms				after;
@@ -90,8 +95,9 @@ int	ft_time(void)
 		clock_gettime(CLOCK_REALTIME, &finish);
 		times(&after);
 		sub_ts(start, finish, &delta);
-		ft_time_print(&before, &after, &delta);
+		if (rtype == 1)
+			ft_time_print(before, after, delta);
 		g_timing = 0;
 	}
-	return (0);
+	return (ft_construct_time(before, after, delta));
 }

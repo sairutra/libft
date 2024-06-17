@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
-/*   Updated: 2024/06/01 09:15:30 by mynodeus         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   libft.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
+/*   Updated: 2024/06/17 14:37:03 by mynodeus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <time.h>
+# include <sys/times.h>
+# include <sys/stat.h>
+# include <sys/types.h>
+# include <dirent.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <errno.h>
+# include <stdio.h>
+# include <stdarg.h>
 
 // Bonus struct
 
@@ -32,6 +42,14 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+// time struct
+typedef struct s_time
+{
+	double			systime;
+	double			usrtime;
+	struct timespec	d;
+}	t_time;
 
 # ifndef DEBUG
 #  define DEBUG 0
@@ -238,7 +256,20 @@ char	*get_next_line(int fd, int free_buf);
 void	ft_debug(char *format, ...);
 
 // test
-int ft_time();
+//[Description]
+//This function is used to time code. This function should be called twice, 
+// first time to start time registration, second time after code that has to be
+// timed has finished. if function is called like ft_time(1); 
+// then the function will immediately print the time registered. 
+// First return can be ignored such as (void)ft_time(0); 
+// Second return can be captured such as t_time time = ft_time(0); 
+//[Parameters]
+//int r(eturn)type
+//[Return]
+//function return t_time struct
+//[Error]
+// No error value
+t_time	ft_time(int rtype);
 
 // bonus functions
 
