@@ -6,7 +6,7 @@
 /*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
-/*   Updated: 2024/06/17 16:16:07 by mynodeus      ########   odam.nl         */
+/*   Updated: 2024/06/17 16:47:54 by mynodeus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # include <errno.h>
 # include <stdio.h>
 # include <stdarg.h>
+# include <limits.h>
+
 
 // Bonus struct
 
@@ -309,6 +311,21 @@ int	ft_check_file(char *path);
 // mkdir function failed or directory already exists.
 // check with ft_check_file function.
 int	ft_create_dir(char *path);
+//[Description]
+//This function writes the log message to the indicated log file.
+//log to directory/log.txt
+//ft_log("directory", "log.txt", "logging");
+//[Parameters]
+//char *path
+//char *file
+//char *log
+//[Return]
+//function returns value for succesful operation
+// 0 == succesful operation
+//[Error]
+// 1 == error
+// fopen failed to open file
+int	ft_log(char *path, char *file, char *log);
 
 // bonus functions
 
