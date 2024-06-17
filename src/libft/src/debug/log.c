@@ -6,35 +6,34 @@
 /*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/20 17:51:10 by spenning      #+#    #+#                 */
-/*   Updated: 2024/06/17 16:50:24 by mynodeus      ########   odam.nl         */
+/*   Updated: 2024/06/17 22:00:54 by mynodeus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../inc/libft.h"
 
-int	ft_log(char *path, char *file, char *log)
+int	ft_log(char *path, char *format, ...)
 {
 	FILE	*fptr;
-	char	*temp;
-	char	*temp2;
-
-	if (ft_check_file(path))
+	char	*dir;
+	va_list	ptr;
+	
+	dir = ft_dirname(path);
+	if (ft_check_file(dir))
 	{
-		if (ft_create_dir(path))
+		if (ft_create_dir(dir))
+		{
+			free(dir);
 			return (EXIT_FAILURE);
+		}
 	}
-	temp = ft_strjoin(path, "/");
-	if (!temp)
-		return (EXIT_FAILURE);
-	temp2 = ft_strjoin(temp, file);
-	if (!temp2)
-		return (EXIT_FAILURE);
-	free(temp);
-	fptr = fopen(temp2, "a+");
-	free(temp2);
+	free(dir);
+	fptr = fopen(path, "a+");
 	if (fptr == NULL)
 		return (EXIT_FAILURE);
-	fprintf(fptr, "%s\n", log);
+	va_start(ptr, format);
+	vfprintf(fptr, format, ptr);
+	va_end(ptr);
 	fclose(fptr);
 	return (EXIT_SUCCESS);
 }
