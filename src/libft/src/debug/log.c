@@ -6,7 +6,7 @@
 /*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/20 17:51:10 by spenning      #+#    #+#                 */
-/*   Updated: 2024/06/17 22:00:54 by mynodeus      ########   odam.nl         */
+/*   Updated: 2024/06/17 22:11:43 by mynodeus      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_log(char *path, char *format, ...)
 	va_list	ptr;
 	
 	dir = ft_dirname(path);
+	if (dir == NULL)
+		return (EXIT_FAILURE);
 	if (ft_check_file(dir))
 	{
 		if (ft_create_dir(dir))
