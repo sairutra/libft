@@ -16,3 +16,6 @@
 [submodule "tests/norminette_tester"]
 	path = tests/norminette_tester
 	url = https://github.com/sebastianpenning/norminette_tester.git
+[submodule "tests/forbidden_func/forbidden_tester"]
+	path = tests/forbidden_func/forbidden_tester
+	url = https://github.com/sairutra/forbidden_tester.git
