@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_striteri.c                                      :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/15 21:56:09 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:55:51 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/15 21:56:09 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:36:28 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // Then to each character of the string the function will be applied
 // until we reach the null terminator of the string
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

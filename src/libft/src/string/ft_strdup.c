@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:35:22 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/14 21:16:03 by spenning         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:57:22 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // if string is empty it will still return
 // copy of empty string
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 char	*ft_strdup(const char *s)
 {

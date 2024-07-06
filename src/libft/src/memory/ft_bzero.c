@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/06 20:08:25 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:53:02 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/06 20:08:25 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:56:08 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 // This function gets a pointer to a certain location together with 
 // the buffer size it needs to set to zero. The void pointer given is

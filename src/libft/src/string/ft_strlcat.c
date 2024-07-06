@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strlcat.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/07 20:43:08 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:56:02 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/07 20:43:08 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:57:34 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 // copies from src is the maximum it can copy the memory with memcpy and
 // null terminate the end.
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

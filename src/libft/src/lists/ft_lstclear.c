@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_lstclear.c                                      :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/01/23 13:43:12 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:54:04 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/23 13:43:12 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:38:28 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 void	ft_lstclear(t_list	**lst, void (*del)(void*))
 {

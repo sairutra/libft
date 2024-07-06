@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strrchr.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/08 15:39:04 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:56:33 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/08 15:39:04 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:58:01 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // go from the end at compare until we find the charachter
 // or if it is not found at all we return null
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 #include <stdio.h>
 #include <string.h>
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_putendl_fd.c                                    :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/12 19:13:18 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:55:20 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/12 19:13:18 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:58:48 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {

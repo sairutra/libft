@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   free_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 17:33:02 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/14 20:59:04 by spenning         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:56:02 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 void	free_char_array(char **arr)
 {

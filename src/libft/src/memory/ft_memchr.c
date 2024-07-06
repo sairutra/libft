@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_memchr.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/08 18:06:38 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:54:47 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/08 18:06:38 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:56:21 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 // this function takes parameter s and we try to find c witin
 // n bytes. We first convert it to char pointer to be able to 

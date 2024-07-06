@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strmapi.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/15 20:21:09 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:56:17 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/15 20:21:09 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:36:54 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // this function created a new string based on s, and then applies f
 // function to every character in the new string that is based on s.
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 {

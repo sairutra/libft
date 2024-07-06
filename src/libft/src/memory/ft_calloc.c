@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_calloc.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/10 19:35:40 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:53:09 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/10 19:35:40 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:56:16 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // with the parameters given, if it is possible, then the size is allocated
 // plus the memory is all zero'd
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

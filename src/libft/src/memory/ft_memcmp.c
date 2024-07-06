@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_memcmp.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/08 18:35:03 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:54:52 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/08 18:35:03 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:56:26 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // this function compares 
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

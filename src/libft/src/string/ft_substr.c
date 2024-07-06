@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:36:05 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/14 21:16:39 by spenning         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:58:31 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // s + start, then the len is corrected to what cn be created. Afterwards
 // the substring is created, copied, and null terminated 
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

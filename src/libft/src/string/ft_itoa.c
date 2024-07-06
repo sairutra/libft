@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:23:57 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/14 21:00:55 by spenning         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:57:06 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // terminating the result. it takes into account the 0 edge case 
 // by putting 0 + 48 and null terminating afterwards.
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 static void	putnmbr(char *string, long int numbers, int totalsize)
 {

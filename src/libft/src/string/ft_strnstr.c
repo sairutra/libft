@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strnstr.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/09 18:54:25 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:56:27 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/09 18:54:25 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:57:56 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 // return a pointer to the start of the first occurence. Otherwise we return
 // Null if we don't find anything. 
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

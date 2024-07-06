@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:38:41 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/14 21:16:49 by spenning         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:58:18 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // If all is trimmed then a string is malloced, and it is returned
 // if successfull. 
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 static int	istrimmable(char const *s1, char const *set)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:06:39 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/14 21:00:41 by spenning         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:56:54 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 // first I skip whitespaces that atoi should skip, 
 // then I detect if there are plus or mignuses, then depending

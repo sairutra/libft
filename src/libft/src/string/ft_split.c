@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenning <spenning@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 13:31:02 by spenning          #+#    #+#             */
-/*   Updated: 2024/05/14 21:01:14 by spenning         ###   ########.fr       */
+/*   Updated: 2024/07/06 15:57:10 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 // this functions frees all the already allocated indexs of the arrays
 // if one of the allocations fails, so we don't have any lingering memory

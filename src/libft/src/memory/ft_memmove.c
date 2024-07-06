@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_memmove.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: spenning <spenning@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/06 22:35:47 by spenning      #+#    #+#                 */
-/*   Updated: 2024/01/23 17:55:04 by spenning      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/06 22:35:47 by spenning          #+#    #+#             */
+/*   Updated: 2024/07/06 15:56:35 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // before it is copied over. If the dest is larger you coud 
 // potentially copy over your source. 
 
-#include "../../../../inc/libft.h"
+#include <libft.h>
 
 static char	*reverse_move(char	*dest_cptr, char const	*src_cptr, size_t n)
 {
