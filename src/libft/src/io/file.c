@@ -6,13 +6,13 @@
 /*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:10:24 by spenning          #+#    #+#             */
-/*   Updated: 2024/07/06 15:37:01 by mynodeus         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:49:02 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char *ft_dirname(char *path)
+char	*ft_dirname(char *path)
 {
 	int		index;
 	int		last;
