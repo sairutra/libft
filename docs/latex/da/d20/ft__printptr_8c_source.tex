@@ -1,0 +1,42 @@
+\doxysection{ft\+\_\+printptr.\+c}
+\hypertarget{ft__printptr_8c_source}{}\label{ft__printptr_8c_source}\index{src/ft\_printf/src/hex/ft\_printptr.c@{src/ft\_printf/src/hex/ft\_printptr.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_printptr.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/12/03\ 10:44:48\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/01/28\ 21:34:01\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}../../inc/ft\_printf.h"{}}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}../../inc/ft\_printf\_internal.h"{}}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00016}00016\ \textcolor{comment}{//\ this\ function\ retrieves\ the\ value\ from\ va\_list}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00017}00017\ \textcolor{comment}{//\ then\ it\ will\ put\ the\ two's\ complement\ before}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00018}00018\ \textcolor{comment}{//\ passing\ the\ value\ to\ ft\_hexconverptr}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00020}00020\ \textcolor{keywordtype}{int}\ ft\_printptr(va\_list\ args)}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ rtr;}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \ \ arg;}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00025}00025\ \ \ \ \ arg\ =\ va\_arg(args,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (arg\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ rtr\ =\ putstr\_fd(\textcolor{stringliteral}{"{}(nil)"{}},\ 1);}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (rtr);}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00031}00031\ \ \ \ \ rtr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00032}00032\ \ \ \ \ rtr\ +=\ putchar\_fd(\textcolor{charliteral}{'0'},\ 1);}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00033}00033\ \ \ \ \ rtr\ +=\ putchar\_fd(\textcolor{charliteral}{'x'},\ 1);}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00034}00034\ \ \ \ \ rtr\ +=\ ft\_hexconvertptr(arg);}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ (rtr);}
+\DoxyCodeLine{\Hypertarget{ft__printptr_8c_source_l00036}00036\ \}}
+
+\end{DoxyCode}

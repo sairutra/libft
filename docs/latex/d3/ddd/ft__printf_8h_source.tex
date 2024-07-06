@@ -1,0 +1,46 @@
+\doxysection{ft\+\_\+printf.\+h}
+\hypertarget{ft__printf_8h_source}{}\label{ft__printf_8h_source}\index{src/ft\_printf/inc/ft\_printf.h@{src/ft\_printf/inc/ft\_printf.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_printf.h\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/21\ 23:03:23\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/01/28\ 21:37:22\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00013}00013\ \textcolor{comment}{//\ These\ are\ header\ guards\ that\ prevent\ the\ double\ definitions\ in\ the}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00014}00014\ \textcolor{comment}{//\ source\ file.\ This\ prevents\ library\ dependency\ from\ double\ copying}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00015}00015\ \textcolor{comment}{//\ libraries.\ if\ libft\ is\ already\ defined\ if\ won't\ define\ it\ again.}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00016}00016\ \textcolor{comment}{//\ name\ is\ LIBFT\_H\ because\ the\ name\ should\ be\ the\ full\ filename\ of\ the}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00017}00017\ \textcolor{comment}{//\ header\ file,\ in\ all\ caps,\ with\ underscores\ for\ spaces\ and\ ​punctuation.}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ FT\_PRINTF\_H}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00020}00020\ \textcolor{preprocessor}{\#\ define\ FT\_PRINTF\_H}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00022}00022\ \textcolor{comment}{//these\ inclusions\ are\ needed\ to\ be\ able\ to\ use\ the\ write\ function\ from}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00023}00023\ \textcolor{comment}{//\ unistd\ library.\ and\ va\_list\ from\ the\ stdarg.h\ library.\ and\ the\ libft\ library}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00025}00025\ \textcolor{preprocessor}{\#\ include\ <stdarg.h>}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00027}00027\ \textcolor{comment}{//\ This\ function\ prints\ out\ the\ format\ string\ +\ variables\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00028}00028\ \textcolor{comment}{//\ depending\ on\ which\ format\ specifiers\ are\ given.\ For\ example:}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00029}00029\ \textcolor{comment}{//\ ft\_printf("{}Hello\ \%s"{},\ s1);}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00030}00030\ \textcolor{comment}{//\ accepted\ formatters:}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00031}00031\ \textcolor{comment}{//\ \%s\ \ \ =\ \ \ char*}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00032}00032\ \textcolor{comment}{//\ \%d\ \ \ =\ \ \ int}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00033}00033\ \textcolor{comment}{//\ \%i\ \ \ =\ \ \ int}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00034}00034\ \textcolor{comment}{//\ \%p\ \ \ =\ \ \ void*}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00035}00035\ \textcolor{comment}{//\ \%u\ \ \ =\ \ \ unsigned\ int}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00036}00036\ \textcolor{comment}{//\ \%x\ \ \ =\ \ \ int}}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00037}00037\ \textcolor{comment}{//\ \%X\ \ \ =\ \ \ int\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00038}00038\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printf(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{ft__printf_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

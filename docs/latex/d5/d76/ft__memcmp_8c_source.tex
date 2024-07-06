@@ -1,0 +1,45 @@
+\doxysection{ft\+\_\+memcmp.\+c}
+\hypertarget{ft__memcmp_8c_source}{}\label{ft__memcmp_8c_source}\index{src/libft/src/memory/ft\_memcmp.c@{src/libft/src/memory/ft\_memcmp.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_memcmp.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/08\ 18:35:03\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 15:56:26\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00013}00013\ \textcolor{comment}{//\ this\ function\ compares\ }}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <libft.h>}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00017}00017\ \textcolor{keywordtype}{int}\ ft\_memcmp(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *s1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *s2,\ \textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ index;}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ *s1\_cptr;}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ *s2\_cptr;}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00023}00023\ \ \ \ \ index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00024}00024\ \ \ \ \ s1\_cptr\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *)s1;}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00025}00025\ \ \ \ \ s2\_cptr\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *)s2;}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{while}\ (index\ <\ n)}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00031}00031\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*(s1\_cptr\ +\ index)\ !=\ *(s2\_cptr\ +\ index))}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*(s1\_cptr\ +\ index)\ -\/\ *(s2\_cptr\ +\ index));}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ index++;}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{\Hypertarget{ft__memcmp_8c_source_l00039}00039\ \}}
+
+\end{DoxyCode}

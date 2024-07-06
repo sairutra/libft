@@ -1,0 +1,44 @@
+\doxysection{ft\+\_\+lstmap.\+c}
+\hypertarget{ft__lstmap_8c_source}{}\label{ft__lstmap_8c_source}\index{src/libft/src/lists/ft\_lstmap.c@{src/libft/src/lists/ft\_lstmap.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_lstmap.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2024/01/23\ 13:52:51\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 15:39:01\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <libft.h>}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00015}00015\ \mbox{\hyperlink{structs__list}{t\_list}}\ \ \ \ *ft\_lstmap(\mbox{\hyperlink{structs__list}{t\_list}}\ *lst,\ \textcolor{keywordtype}{void}\ *(*f)(\textcolor{keywordtype}{void}\ *),\ \textcolor{keywordtype}{void}\ (*del)(\textcolor{keywordtype}{void}\ *))}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{structs__list}{t\_list}}\ \ \ \ *new\_list;}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{structs__list}{t\_list}}\ \ \ \ *new\_node;}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ *set;}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (!lst\ ||\ !f\ ||\ !del)}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00023}00023\ \ \ \ \ new\_list\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{while}\ (lst)}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ set\ =\ f(lst-\/>content);}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ new\_node\ =\ ft\_lstnew(set);}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!new\_node)}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ del(set);}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ ft\_lstclear(\&new\_list,\ (*del));}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (new\_list);}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ ft\_lstadd\_back(\&new\_list,\ new\_node);}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ lst\ =\ lst-\/>next;}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ (new\_list);}
+\DoxyCodeLine{\Hypertarget{ft__lstmap_8c_source_l00038}00038\ \}}
+
+\end{DoxyCode}

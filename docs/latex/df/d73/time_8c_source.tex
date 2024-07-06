@@ -1,0 +1,109 @@
+\doxysection{time.\+c}
+\hypertarget{time_8c_source}{}\label{time_8c_source}\index{src/libft/src/profile/time.c@{src/libft/src/profile/time.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ time.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/12\ 18:10:24\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 15:56:46\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <libft.h>}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00015}00015\ \textcolor{preprocessor}{\#define\ RED\ \ \ "{}\(\backslash\)x1B[31m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00016}00016\ \textcolor{preprocessor}{\#define\ GRN\ \ \ "{}\(\backslash\)x1B[1;32m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00017}00017\ \textcolor{preprocessor}{\#define\ YEL\ \ \ "{}\(\backslash\)x1B[33m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00018}00018\ \textcolor{preprocessor}{\#define\ BLU\ \ \ "{}\(\backslash\)x1B[34m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00019}00019\ \textcolor{preprocessor}{\#define\ MAG\ \ \ "{}\(\backslash\)x1B[35m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00020}00020\ \textcolor{preprocessor}{\#define\ BMAG\ \ \ "{}\(\backslash\)x1B[1;35m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00021}00021\ \textcolor{preprocessor}{\#define\ CYN\ \ \ "{}\(\backslash\)x1B[36m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00022}00022\ \textcolor{preprocessor}{\#define\ BCYN\ \ \ "{}\(\backslash\)x1B[1;36m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00023}00023\ \textcolor{preprocessor}{\#define\ WHT\ \ \ "{}\(\backslash\)x1B[37m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00024}00024\ \textcolor{preprocessor}{\#define\ RESET\ "{}\(\backslash\)x1B[0m"{}}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00026}00026\ \textcolor{comment}{//acknowledgement\ }}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00027}00027\ \textcolor{comment}{//https://medium.com/geekculture/rdtsc-\/the-\/only-\/way-\/to-\/benchmark-\/fc84562ef734}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00029}00029\ \textcolor{preprocessor}{\#define\ NS\_PER\_SECOND\ 1000000000}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00031}00031\ \textcolor{keywordtype}{int}\ g\_timing\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00033}00033\ \textcolor{keywordtype}{void}\ \ \ \ sub\_ts(\textcolor{keyword}{struct}\ timespec\ t1,\ \textcolor{keyword}{struct}\ timespec\ t2,\ \textcolor{keyword}{struct}\ timespec\ *td)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00035}00035\ \ \ \ \ td-\/>tv\_nsec\ =\ t2.tv\_nsec\ -\/\ t1.tv\_nsec;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00036}00036\ \ \ \ \ td-\/>tv\_sec\ =\ t2.tv\_sec\ -\/\ t1.tv\_sec;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (td-\/>tv\_sec\ >\ 0\ \&\&\ td-\/>tv\_nsec\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ td-\/>tv\_nsec\ +=\ NS\_PER\_SECOND;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ td-\/>tv\_sec-\/-\/;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (td-\/>tv\_sec\ <\ 0\ \&\&\ td-\/>tv\_nsec\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00043}00043\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ td-\/>tv\_nsec\ -\/=\ NS\_PER\_SECOND;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ td-\/>tv\_sec++;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00049}00049\ \mbox{\hyperlink{structs__time}{t\_time}}\ \ \ \ ft\_construct\_time(\textcolor{keyword}{struct}\ tms\ a,\ \textcolor{keyword}{struct}\ tms\ b,\ \textcolor{keyword}{struct}\ timespec\ d)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00050}00050\ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{double}\ \ systime;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{double}\ \ usrtime;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00053}00053\ \ \ \ \ clock\_t\ resolution;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{structs__time}{t\_time}}\ \ \ \ time;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00056}00056\ \ \ \ \ resolution\ =\ sysconf(\_SC\_CLK\_TCK);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00057}00057\ \ \ \ \ systime\ =\ (double)(a.tms\_stime\ -\/\ b.tms\_stime)\ /\ resolution;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00058}00058\ \ \ \ \ usrtime\ =\ (double)(a.tms\_utime\ -\/\ b.tms\_utime)\ /\ resolution;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00059}00059\ \ \ \ \ time.systime\ =\ systime;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00060}00060\ \ \ \ \ time.usrtime\ =\ usrtime;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00061}00061\ \ \ \ \ time.d\ =\ d;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{return}\ (time);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00065}00065\ \textcolor{keywordtype}{void}\ \ \ \ ft\_time\_print(\textcolor{keyword}{struct}\ tms\ a,\ \textcolor{keyword}{struct}\ tms\ b,\ \textcolor{keyword}{struct}\ timespec\ d)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00066}00066\ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{double}\ \ systime;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{double}\ \ usrtime;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00069}00069\ \ \ \ \ clock\_t\ resolution;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00071}00071\ \ \ \ \ resolution\ =\ sysconf(\_SC\_CLK\_TCK);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00072}00072\ \ \ \ \ systime\ =\ (double)(a.tms\_stime\ -\/\ b.tms\_stime)\ /\ resolution;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00073}00073\ \ \ \ \ usrtime\ =\ (double)(a.tms\_utime\ -\/\ b.tms\_utime)\ /\ resolution;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00074}00074\ \ \ \ \ printf(BCYN\ \textcolor{stringliteral}{"{}SYS\ TIME:\ \%f\(\backslash\)n"{}}\ RESET,\ systime);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00075}00075\ \ \ \ \ printf(BCYN\ \textcolor{stringliteral}{"{}USR\ TIME:\ \%f\(\backslash\)n"{}}\ RESET,\ usrtime);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00076}00076\ \ \ \ \ printf(BCYN\ \textcolor{stringliteral}{"{}REA\ TIME:\ \%d.\%.9ld\(\backslash\)n"{}}\ RESET,\ (\textcolor{keywordtype}{int})d.tv\_sec,\ d.tv\_nsec);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00079}00079\ \mbox{\hyperlink{structs__time}{t\_time}}\ \ \ \ ft\_time(\textcolor{keywordtype}{int}\ rtype)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }tms\ \ \ \ \ \ \ before;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00082}00082\ \ \ \ \ \textcolor{keyword}{struct\ }tms\ \ \ \ \ \ \ \ \ \ \ \ \ \ after;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00083}00083\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }timespec\ \ start;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ \ \ \ \ \ \ \ \ finish;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ \ \ \ \ \ \ \ \ delta;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (g\_timing\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00088}00088\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ clock\_gettime(CLOCK\_REALTIME,\ \&start);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ times(\&before);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ g\_timing\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00094}00094\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ clock\_gettime(CLOCK\_REALTIME,\ \&finish);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ times(\&after);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ sub\_ts(start,\ finish,\ \&delta);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rtype\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ ft\_time\_print(before,\ after,\ delta);}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ g\_timing\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{return}\ (ft\_construct\_time(before,\ after,\ delta));}
+\DoxyCodeLine{\Hypertarget{time_8c_source_l00103}00103\ \}}
+
+\end{DoxyCode}

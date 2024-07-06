@@ -1,0 +1,35 @@
+\doxysection{ft\+\_\+printf}
+\hypertarget{ft_printf-example}{}\label{ft_printf-example}This function prints out the format string + variables depending on which format specifiers are given. ("{}\+Hello \%s"{}, s1);.
+
+This function prints out the format string + variables depending on which format specifiers are given. ("{}\+Hello \%s"{}, s1); 
+\begin{DoxyParams}{Parameters}
+{\em char} & const \texorpdfstring{$\ast$}{*}format \\
+\hline
+{\em (...)} & variadic parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+accepted formatters\+: 
+
+s = char\texorpdfstring{$\ast$}{*} 
+
+d = int 
+
+i = int 
+
+p = void\texorpdfstring{$\ast$}{*} 
+
+u = unsigned int 
+
+x = int 
+
+X = int 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Returns amount of characters written
+\end{DoxyReturn}
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

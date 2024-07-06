@@ -1,0 +1,91 @@
+\doxysection{ft\+\_\+printf\+\_\+internal.\+h}
+\hypertarget{ft__printf__internal_8h_source}{}\label{ft__printf__internal_8h_source}\index{src/ft\_printf/inc/ft\_printf\_internal.h@{src/ft\_printf/inc/ft\_printf\_internal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_printf\_internal.h\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/21\ 23:03:23\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/05/17\ 19:20:55\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00013}00013\ \textcolor{comment}{//\ This\ extra\ .h\ file\ is\ made\ to\ make\ sure\ the\ extra\ functions\ used\ by\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00014}00014\ \textcolor{comment}{//\ printf\ are\ only\ used\ by\ printf\ and\ not\ any\ other\ file\ /\ function\ /\ user}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00016}00016\ \textcolor{comment}{//\ These\ are\ header\ guards\ that\ prevent\ the\ double\ definitions\ in\ the}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00017}00017\ \textcolor{comment}{//\ source\ file.\ This\ prevents\ library\ dependency\ from\ double\ copying}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00018}00018\ \textcolor{comment}{//\ libraries.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ FT\_PRINTF\_INTERNAL\_H}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00021}00021\ \textcolor{preprocessor}{\#\ define\ FT\_PRINTF\_INTERNAL\_H}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00023}00023\ \textcolor{comment}{//these\ inclusions\ are\ needed\ to\ be\ able\ to\ use\ the\ write\ function\ from}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00024}00024\ \textcolor{comment}{//\ unistd\ library.\ and\ va\_list\ from\ the\ stdarg.h\ library.\ and\ the\ libft\ library}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00026}00026\ \textcolor{preprocessor}{\#\ include\ <stdarg.h>}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00027}00027\ \textcolor{preprocessor}{\#\ include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00028}00028\ \textcolor{preprocessor}{\#\ include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00030}00030\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printf\ by\ printing\ all\ variables}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00031}00031\ \textcolor{comment}{//\ which\ are\ passed\ with\ the\ \%c\ formatter.\ The\ \%c\ formatter\ is\ meant}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00032}00032\ \textcolor{comment}{//\ for\ characters}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00033}00033\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printchar(va\_list\ args);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00034}00034\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printf\ by\ printing\ all\ variables}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00035}00035\ \textcolor{comment}{//\ which\ are\ passed\ with\ the\ \%s\ formatter.\ The\ \%s\ formatter\ is\ meant}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00036}00036\ \textcolor{comment}{//\ for\ string}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00037}00037\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printstr(va\_list\ args);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00038}00038\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printf\ by\ printing\ all\ variables}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00039}00039\ \textcolor{comment}{//\ which\ are\ passed\ with\ the\ \%i\ formatter.\ The\ \%i\ formatter\ is\ meant}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00040}00040\ \textcolor{comment}{//\ for\ signed\ integers}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00041}00041\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printint(va\_list\ args);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00042}00042\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printf\ by\ printing\ all\ variables}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00043}00043\ \textcolor{comment}{//\ which\ are\ passed\ with\ the\ \%u\ formatter.\ The\ \%u\ formatter\ is\ meant}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00044}00044\ \textcolor{comment}{//\ for\ unsigned\ integers}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00045}00045\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printuint(va\_list\ args);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00046}00046\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printf\ by\ printing\ all\ variables}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00047}00047\ \textcolor{comment}{//\ which\ are\ passed\ with\ the\ \%\%\ formatter.\ The\ \%\%\ formatter\ is\ meant}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00048}00048\ \textcolor{comment}{//\ for\ ampersands}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00049}00049\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printamp(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00050}00050\ \textcolor{comment}{//\ This\ function\ aids\ the\ ft\_printf\ by\ printing\ all\ variables}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00051}00051\ \textcolor{comment}{//\ which\ are\ passed\ with\ either\ the\ \%x\ or\ \%X\ formatter.\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00052}00052\ \textcolor{comment}{//\ These\ formatters\ are\ used\ to\ print\ the\ hexidecimal\ values.\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00053}00053\ \textcolor{comment}{//\ Which\ are\ then\ passed\ on\ to\ ft\_hexconvert}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00054}00054\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printhex(va\_list\ args,\ \textcolor{keywordtype}{char}\ specifier);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00055}00055\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printhex.\ the\ values\ and\ formatters\ are\ passed}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00056}00056\ \textcolor{comment}{//\ on\ to\ this\ function.\ This\ function\ recursively\ converts\ the\ value\ to\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00057}00057\ \textcolor{comment}{//\ hexidecimal\ and\ then\ depending\ on\ the\ formatter\ will\ either\ print\ the\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00058}00058\ \textcolor{comment}{//\ hexidecimal\ in\ upper\ or\ lowercase}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00059}00059\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_hexconvert(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ arg,\ \textcolor{keywordtype}{char}\ specifier);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00060}00060\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printf.\ by\ printing\ all\ variables}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00061}00061\ \textcolor{comment}{//\ which\ are\ passed\ with\ either\ the\ \%p\ formatter.The\ \%p\ formatter\ is\ meant}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00062}00062\ \textcolor{comment}{//\ for\ address\ of\ pointers.\ This\ function\ is\ similar\ to\ ft\_printhex}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00063}00063\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_printptr(va\_list\ args);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00064}00064\ \textcolor{comment}{//\ This\ function\ aids\ ft\_printptr.\ This\ function\ recursively\ converts\ the\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00065}00065\ \textcolor{comment}{//\ value\ to\ hexidecimal\ and\ will\ then\ print\ the\ hexidecimal\ lowercase.\ This\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00066}00066\ \textcolor{comment}{//\ function\ is\ similar\ such\ as\ ft\_hexconvert}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00067}00067\ \textcolor{keywordtype}{int}\ \ \ \ \ ft\_hexconvertptr(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ arg);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00068}00068\ \textcolor{comment}{//\ This\ function\ takes\ c\ and\ puts\ this\ c\ in\ fd\ file\ descriptor.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00069}00069\ \textcolor{keywordtype}{int}\ \ \ \ \ putchar\_fd(\textcolor{keywordtype}{char}\ c,\ \textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00070}00070\ \textcolor{comment}{//\ This\ function\ takes\ char\ *s\ and\ puts\ this\ string\ in\ fd\ file\ descriptor.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00071}00071\ \textcolor{keywordtype}{int}\ \ \ \ \ putstr\_fd(\textcolor{keywordtype}{char}\ *s,\ \textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00072}00072\ \textcolor{comment}{//\ This\ function\ takes\ d\ and\ puts\ this\ integer\ value\ as\ a\ string\ in\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00073}00073\ \textcolor{comment}{//\ fd\ file\ descriptor.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00074}00074\ \textcolor{keywordtype}{int}\ \ \ \ \ putnbr\_fd(\textcolor{keywordtype}{int}\ d,\ \textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00075}00075\ \textcolor{comment}{//\ This\ function\ takes\ input\ and\ converts\ input\ to\ uppercase\ equivalent}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00076}00076\ \textcolor{comment}{//\ if\ input\ was\ lowercase.\ Function\ returns\ conversion.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00077}00077\ \textcolor{keywordtype}{int}\ \ \ \ \ tolower(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00078}00078\ \textcolor{comment}{//\ This\ function\ takes\ input\ and\ converts\ input\ to\ lowercase\ equivalent\ }}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00079}00079\ \textcolor{comment}{//\ if\ input\ was\ uppercase.\ Function\ returns\ conversion.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00080}00080\ \textcolor{keywordtype}{int}\ \ \ \ \ toupper(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00081}00081\ \textcolor{comment}{//\ This\ function\ takes\ pointer\ char\ *s,\ and\ expects\ a\ null\ terminated\ string.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00082}00082\ \textcolor{comment}{//\ then\ returns\ the\ length\ of\ the\ string.}}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00083}00083\ \textcolor{keywordtype}{size\_t}\ \ strlen(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s);}
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{ft__printf__internal_8h_source_l00085}00085\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

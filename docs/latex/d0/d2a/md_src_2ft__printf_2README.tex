@@ -1,0 +1,156 @@
+\chapter{README}
+\hypertarget{md_src_2ft__printf_2README}{}\label{md_src_2ft__printf_2README}\index{README@{README}}
+\label{md_src_2get__next__line_2README_readme-top}%
+\Hypertarget{md_src_2get__next__line_2README_readme-top}%
+
+
+\href{https://github.com/sebastianpenning/ft_printf/graphs/contributors}{\texttt{ }} \href{https://github.com/sebastianpenning/ft_printf/network/members}{\texttt{ }} \href{https://github.com/sebastianpenning/ft_printf/stargazers}{\texttt{ }} \href{https://github.com/sebastianpenning/ft_printf/issues}{\texttt{ }} \href{https://github.com/sebastianpenning/ft_printf/blob/main/LICENSE}{\texttt{ }}
+
+~\newline
+  \href{https://github.com/sebastianpenning/ft_printf}{\texttt{  }}
+
+ \doxysubsubsection*{ft\+\_\+printf}
+
+
+
+ 
+
+ ft\+\_\+printf is a 42 version of printf ~\newline
+ \href{https://github.com/sebastianpenning/ft_printf}{\texttt{ {\bfseries{Explore the docs »}}}} ~\newline
+ ~\newline
+ \href{https://github.com/sebastianpenning/ft_printf}{\texttt{ View Demo}} · \href{https://github.com/sebastianpenning/ft_printf/issues}{\texttt{ Report Bug}} · \href{https://github.com/sebastianpenning/ft_printf/issues}{\texttt{ Request Feature}} 
+
+ 
+
+
+
+{\bfseries{Table of Contents}}\begin{adjustwidth}{1em}{0em}
+
+\begin{DoxyEnumerate}
+\item \href{\#about-the-project}{\texttt{ About The Project}} 
+\begin{DoxyItemize}
+\item \href{\#built-with}{\texttt{ Built With}} 
+\end{DoxyItemize}
+\item \href{\#getting-started}{\texttt{ Getting Started}} 
+\begin{DoxyItemize}
+\item \href{\#installation}{\texttt{ Installation}} 
+\end{DoxyItemize}
+\item \href{\#usage}{\texttt{ Usage}} 
+\item \href{\#roadmap}{\texttt{ Roadmap}} 
+\item \href{\#license}{\texttt{ License}} 
+\item \href{\#acknowledgments}{\texttt{ Acknowledgments}} 
+\end{DoxyEnumerate}\end{adjustwidth}
+\hypertarget{md_src_2ft__printf_2README_autotoc_md9}{}\doxysection{\texorpdfstring{About The Project}{About The Project}}\label{md_src_2ft__printf_2README_autotoc_md9}
+ft\+\_\+printf is a project at Codam that teaches you about variadic variables and how they can be applied to re-\/engineer printf. In the project it was specifically stated not to reenact the buffer management of the original printf.
+
+(\href{\#readme-top}{\texttt{ back to top}})\hypertarget{md_src_2ft__printf_2README_autotoc_md10}{}\doxysection{\texorpdfstring{Built With}{Built With}}\label{md_src_2ft__printf_2README_autotoc_md10}
+
+\begin{DoxyItemize}
+\item \href{https://www.learn-c.org/}{\texttt{ }}
+\end{DoxyItemize}
+
+(\href{\#readme-top}{\texttt{ back to top}})\hypertarget{md_src_2ft__printf_2README_autotoc_md11}{}\doxysection{\texorpdfstring{Getting Started}{Getting Started}}\label{md_src_2ft__printf_2README_autotoc_md11}
+This is an example of how you may give instructions on setting up your project locally.
+
+To get a local copy up and running follow these simple example steps.\hypertarget{md_src_2ft__printf_2README_autotoc_md12}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_src_2ft__printf_2README_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item Clone the repo with --recursive flag, which is necessary for the tester
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/sebastianpenning/ft\_printf.git\ -\/-\/recursive}
+
+\end{DoxyCode}
+
+\begin{DoxyEnumerate}
+\item cd into directory
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ ft\_printf}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Call the Makefile
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Copy libftprintf.\+a and \doxylink{ft__printf_8h_source}{ft\+\_\+printf.\+h} files over to working directory
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cp\ \{location\}\ ft\_printf.h\ \{working\ directory\}}
+\DoxyCodeLine{cp\ \{location\}\ libftprintf.a\ \{working\ directory\}}
+
+\end{DoxyCode}
+
+
+\href{https://github.com/sebastianpenning/ft_printf}{\texttt{  }}\hypertarget{md_src_2ft__printf_2README_autotoc_md13}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_src_2ft__printf_2README_autotoc_md13}
+
+\begin{DoxyEnumerate}
+\item Include \doxylink{libft_8h_source}{libft.\+h} file and libft function in project.
+\end{DoxyEnumerate}
+
+\href{https://github.com/sebastianpenning/ft_printf}{\texttt{  }}
+
+
+\begin{DoxyEnumerate}
+\item Compile with cc
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cc\ -\/Wall\ -\/Werror\ -\/Wextra\ \{project\_files.c\}\ libftprintf.a\ \&\&\ ./a.out}
+
+\end{DoxyCode}
+
+
+\href{https://github.com/sebastianpenning/ft_printf}{\texttt{  }}\hypertarget{md_src_2ft__printf_2README_autotoc_md14}{}\doxysection{\texorpdfstring{Tester}{Tester}}\label{md_src_2ft__printf_2README_autotoc_md14}
+The libft tester includes tests for libft, printf, and get\+\_\+next\+\_\+line with both unit tests and norminette tests for all files included. In the future memory tests are planned to be added.
+
+
+\begin{DoxyEnumerate}
+\item cd into ft\+\_\+printf\+\_\+testser
+\end{DoxyEnumerate}
+
+\href{https://github.com/sebastianpenning/libft}{\texttt{  }}
+
+
+\begin{DoxyEnumerate}
+\item Make tests
+\end{DoxyEnumerate}
+
+\href{https://github.com/sebastianpenning/libft}{\texttt{  }}\hypertarget{md_src_2ft__printf_2README_autotoc_md15}{}\doxysection{\texorpdfstring{Roadmap}{Roadmap}}\label{md_src_2ft__printf_2README_autotoc_md15}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] 
+\end{DoxyItemize}
+
+See the \href{https://github.com/sebastianpenning/ft_printf/issues}{\texttt{ open issues}} for a full list of proposed features (and known issues).
+
+(\href{\#readme-top}{\texttt{ back to top}})\hypertarget{md_src_2ft__printf_2README_autotoc_md16}{}\doxysection{\texorpdfstring{License}{License}}\label{md_src_2ft__printf_2README_autotoc_md16}
+Distributed under the MIT License. See {\ttfamily LICENSE.\+txt} for more information.
+
+(\href{\#readme-top}{\texttt{ back to top}})\hypertarget{md_src_2ft__printf_2README_autotoc_md17}{}\doxysection{\texorpdfstring{Acknowledgments}{Acknowledgments}}\label{md_src_2ft__printf_2README_autotoc_md17}
+
+\begin{DoxyItemize}
+\item \href{https://www.codam.nl/about-codam}{\texttt{ Codam}}
+\item \href{https://github.com/othneildrew/Best-README-Template/tree/master}{\texttt{ Readme Template}}
+\end{DoxyItemize}
+
+(\href{\#readme-top}{\texttt{ back to top}})

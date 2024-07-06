@@ -1,0 +1,77 @@
+\doxysection{ft\+\_\+itoa.\+c}
+\hypertarget{ft__itoa_8c_source}{}\label{ft__itoa_8c_source}\index{src/libft/src/string/ft\_itoa.c@{src/libft/src/string/ft\_itoa.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_itoa.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/15\ 17:23:57\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 15:57:06\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00013}00013\ \textcolor{comment}{//\ this\ functions\ first\ makes\ a\ long\ integer\ to\ handle\ }}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00014}00014\ \textcolor{comment}{//\ int\ edge\ cases,\ then\ it\ counts\ the\ amount\ of\ memory\ it\ }}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00015}00015\ \textcolor{comment}{//\ needs\ to\ allocate\ with\ size\_counter.\ if\ number\ is\ negative\ }}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00016}00016\ \textcolor{comment}{//\ then\ it\ will\ first\ put\ a\ '-\/'.\ afterwards\ it\ will\ go\ into\ the\ }}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00017}00017\ \textcolor{comment}{//\ recursive\ putnmbr\ function.\ it\ will\ end\ the\ function\ by\ null}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00018}00018\ \textcolor{comment}{//\ terminating\ the\ result.\ it\ takes\ into\ account\ the\ 0\ edge\ case\ }}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00019}00019\ \textcolor{comment}{//\ by\ putting\ 0\ +\ 48\ and\ null\ terminating\ afterwards.}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <libft.h>}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00023}00023\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ putnmbr(\textcolor{keywordtype}{char}\ *\textcolor{keywordtype}{string},\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ numbers,\ \textcolor{keywordtype}{int}\ totalsize)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (numbers\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ numbers\ =\ numbers\ *\ -\/1;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (numbers\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ putnmbr(\textcolor{keywordtype}{string},\ numbers\ /\ 10,\ totalsize\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}[totalsize\ -\/\ 1]\ =\ 48\ +\ (numbers\ \%\ 10);}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00034}00034\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ size\_counter(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ ln)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00038}00038\ \ \ \ \ size\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (ln\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ size++;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ ln\ =\ ln\ *\ -\/1;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{while}\ (ln\ >\ 9)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00045}00045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ ln\ =\ ln\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ size++;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{return}\ (size);}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00052}00052\ \textcolor{keywordtype}{char}\ \ \ \ *ft\_itoa(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{long}\ \ \ \ ln;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ count\_size;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ *return\_str;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00058}00058\ \ \ \ \ ln\ =\ n;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00059}00059\ \ \ \ \ count\_size\ =\ size\_counter(ln);}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00060}00060\ \ \ \ \ count\_size\ =\ count\_size\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00061}00061\ \ \ \ \ return\_str\ =\ ft\_calloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ (count\_size\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (!return\_str)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ return\_str[0]\ =\ \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00066}00066\ \ \ \ \ putnmbr(return\_str,\ ln,\ count\_size);}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ return\_str[0]\ =\ 48\ +\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00069}00069\ \ \ \ \ return\_str[count\_size]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{return}\ (return\_str);}
+\DoxyCodeLine{\Hypertarget{ft__itoa_8c_source_l00071}00071\ \}}
+
+\end{DoxyCode}

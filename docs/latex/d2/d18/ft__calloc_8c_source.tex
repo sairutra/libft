@@ -1,0 +1,48 @@
+\doxysection{ft\+\_\+calloc.\+c}
+\hypertarget{ft__calloc_8c_source}{}\label{ft__calloc_8c_source}\index{src/libft/src/memory/ft\_calloc.c@{src/libft/src/memory/ft\_calloc.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_calloc.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/10\ 19:35:40\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 15:56:16\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00013}00013\ \textcolor{comment}{//\ takes\ nmemb\ and\ size\ parameters,\ functions\ first\ checks}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00014}00014\ \textcolor{comment}{//\ with\ unsigned\ long\ long\ max\_size\ if\ allocation\ would\ be\ possible.}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00015}00015\ \textcolor{comment}{//\ nmemb\ cannot\ be\ bigger\ than\ max\ /\ size\ and\ size\ is\ bigger\ than\ zero\ then}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00016}00016\ \textcolor{comment}{//\ it\ will\ return\ null\ because\ this\ allocation\ won't\ work,\ just\ as\ calloc}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00017}00017\ \textcolor{comment}{//\ if\ nmemb\ is\ too\ big\ but\ size\ is\ 0,\ then\ will\ give\ a\ pointer\ that\ }}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00018}00018\ \textcolor{comment}{//\ can\ later\ be\ free,\ just\ as\ calloc\ does\ in\ real\ life.\ }}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00019}00019\ \textcolor{comment}{//\ with\ the\ parameters\ given,\ if\ it\ is\ possible,\ then\ the\ size\ is\ allocated}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00020}00020\ \textcolor{comment}{//\ plus\ the\ memory\ is\ all\ zero'd}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <libft.h>}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00024}00024\ \textcolor{keywordtype}{void}\ \ \ \ *ft\_calloc(\textcolor{keywordtype}{size\_t}\ nmemb,\ \textcolor{keywordtype}{size\_t}\ size)}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *memory\_vptr;}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ totalsize;}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ max\_size;}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00030}00030\ \ \ \ \ max\_size\ =\ 1844674407370955161;}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ !=\ 0\ \&\&\ nmemb\ >\ max\_size\ /\ size)}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ totalsize\ =\ nmemb\ *\ size;}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ memory\_vptr\ =\ malloc(totalsize);}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!memory\_vptr)}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ ft\_bzero(memory\_vptr,\ totalsize);}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (memory\_vptr);}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__calloc_8c_source_l00042}00042\ \}}
+
+\end{DoxyCode}

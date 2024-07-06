@@ -1,0 +1,43 @@
+\doxysection{ft\+\_\+hexconvertptr.\+c}
+\hypertarget{ft__hexconvertptr_8c_source}{}\label{ft__hexconvertptr_8c_source}\index{src/ft\_printf/src/hex/ft\_hexconvertptr.c@{src/ft\_printf/src/hex/ft\_hexconvertptr.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_hexconvertptr.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/12/03\ 10:43:41\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/01/28\ 21:37:55\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}../../inc/ft\_printf.h"{}}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}../../inc/ft\_printf\_internal.h"{}}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00016}00016\ \textcolor{comment}{//\ This\ function\ converts\ the\ value\ passed\ from\ ft\_printptr\ to\ }}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00017}00017\ \textcolor{comment}{//\ hexidecimal\ recursively}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00019}00019\ \textcolor{keywordtype}{int}\ ft\_hexconvertptr(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ arg)}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{int}\ rtr;}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{int}\ rem\_int;}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00024}00024\ \ \ \ \ rtr\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00025}00025\ \ \ \ \ rem\_int\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (arg\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ rtr\ +=\ ft\_hexconvertptr(arg\ /\ 16);}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ rem\_int\ =\ arg\ \%\ 16;}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rem\_int\ >\ 9)}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ rem\_int\ +=\ 55;}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ rem\_int\ +=\ 48;}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ rtr\ +=\ putchar\_fd(tolower(rem\_int),\ 1);}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ (rtr);}
+\DoxyCodeLine{\Hypertarget{ft__hexconvertptr_8c_source_l00037}00037\ \}}
+
+\end{DoxyCode}

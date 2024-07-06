@@ -1,0 +1,51 @@
+\doxysection{ft\+\_\+substr.\+c}
+\hypertarget{ft__substr_8c_source}{}\label{ft__substr_8c_source}\index{src/libft/src/string/ft\_substr.c@{src/libft/src/string/ft\_substr.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_substr.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/10\ 21:36:05\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 15:58:31\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00013}00013\ \textcolor{comment}{//\ this\ functoin\ creates\ a\ substring\ from\ s\ that\ starts\ at\ index\ start}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00014}00014\ \textcolor{comment}{//\ and\ is\ len\ bytes\ long.\ If\ the\ start\ is\ bigger\ or\ the\ same\ as\ the\ lenght}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00015}00015\ \textcolor{comment}{//\ of\ s,\ then\ it\ has\ to\ be\ an\ empty\ string,\ so\ a\ empty\ string\ is\ returned.}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00016}00016\ \textcolor{comment}{//\ if\ the\ len\ to\ too\ much\ longer\ than\ the\ substring\ that\ can\ be\ created\ from}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00017}00017\ \textcolor{comment}{//\ s\ +\ start,\ then\ the\ len\ is\ corrected\ to\ what\ cn\ be\ created.\ Afterwards}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00018}00018\ \textcolor{comment}{//\ the\ substring\ is\ created,\ copied,\ and\ null\ terminated\ }}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <libft.h>}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00022}00022\ \textcolor{keywordtype}{char}\ \ \ \ *ft\_substr(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *s,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{size\_t}\ len)}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ *s\_cptr;}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ *ns\_cptr;}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ index;}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ >=\ ft\_strlen(s))}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (ft\_strdup(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ >\ ft\_strlen(s\ +\ start))}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ len\ =\ ft\_strlen(s\ +\ start);}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00032}00032\ \ \ \ \ ns\_cptr\ =\ (\textcolor{keywordtype}{char}\ *)ft\_calloc(len\ +\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (ns\_cptr\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00035}00035\ \ \ \ \ s\_cptr\ =\ (\textcolor{keywordtype}{char}\ *)s;}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00036}00036\ \ \ \ \ index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{while}\ (index\ <\ len\ \&\&\ s\_cptr[start]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ ns\_cptr[index]\ =\ s\_cptr[start];}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ start++;}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ index++;}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00043}00043\ \ \ \ \ ns\_cptr[index]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ (ns\_cptr);}
+\DoxyCodeLine{\Hypertarget{ft__substr_8c_source_l00045}00045\ \}}
+
+\end{DoxyCode}

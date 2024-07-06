@@ -1,0 +1,157 @@
+\doxysection{/home/mynodeus/\+Documents/projects/executables/libft/inc/libft.\+h}
+\hypertarget{_2home_2mynodeus_2Documents_2projects_2executables_2libft_2inc_2libft_8h-example}{}\label{_2home_2mynodeus_2Documents_2projects_2executables_2libft_2inc_2libft_8h-example}This function is used to time code. This function should be called twice, first time to start time registration, second time after code that has to be timed has finished. function is called like ft\+\_\+time(1); then the function will immediately print the time registered. First return can be ignored such as (void)ft\+\_\+time(0); Second return can be captured such as t\+\_\+time time = ft\+\_\+time(0);.
+
+This function is used to time code. This function should be called twice, first time to start time registration, second time after code that has to be timed has finished. function is called like ft\+\_\+time(1); then the function will immediately print the time registered. First return can be ignored such as (void)ft\+\_\+time(0); Second return can be captured such as t\+\_\+time time = ft\+\_\+time(0);
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(void)ft\_time(0);}
+\DoxyCodeLine{function\_to\_be\_profiled();}
+\DoxyCodeLine{\mbox{\hyperlink{structs__time}{t\_time}}\ time\ =\ ft\_time(0);}
+
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em int} & r(eturn)type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+function return t\+\_\+time struct
+\end{DoxyReturn}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ libft.h\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ Created:\ 2023/10/21\ 23:03:23\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 17:54:43\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ LIBFT\_H}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ define\ LIBFT\_H}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <unistd.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <time.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <sys/times.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <sys/stat.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <sys/types.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <dirent.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <sys/types.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <sys/wait.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <errno.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <stdarg.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ include\ <limits.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Bonus\ struct}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structs__list}{s\_list}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ *content;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structs__list}{s\_list}}\ *next;}
+\DoxyCodeLine{\}\ \ \ \mbox{\hyperlink{structs__list}{t\_list}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ time\ struct}}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structs__time}{s\_time}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ systime;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ usrtime;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }timespec\ d;}
+\DoxyCodeLine{\}\ \ \ \mbox{\hyperlink{structs__time}{t\_time}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ ifndef\ DEBUG}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ \ define\ DEBUG\ 0}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ STRING}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_substr(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *s,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_strtrim(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *s1,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *set);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_strnstr(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *big,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *little,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_strncmp(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s2,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ \ ft\_strlen(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s);}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ \ ft\_strlcpy(\textcolor{keywordtype}{char}\ *dst,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ \ ft\_strlcat(\textcolor{keywordtype}{char}\ *dst,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_strjoin(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *s1,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *s2);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_strdup(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_strchr(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s,\ \textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_strrchr(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s,\ \textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_atoi(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *nptr);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_itoa(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_toupper(\textcolor{keywordtype}{int}\ input);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_tolower(\textcolor{keywordtype}{int}\ input);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ **ft\_split(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *s,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ MEMORY}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_bzero(\textcolor{keywordtype}{void}\ *s,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ *ft\_memset(\textcolor{keywordtype}{void}\ *s,\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ *ft\_memmove(\textcolor{keywordtype}{void}\ *dest,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *src,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ *ft\_memcpy(\textcolor{keywordtype}{void}\ *dest,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *src,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_memcmp(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *s1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *s2,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ *ft\_memchr(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *s,\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ *ft\_calloc(\textcolor{keywordtype}{size\_t}\ nmemb,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ free\_char\_array(\textcolor{keywordtype}{char}\ **arr);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ IS}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_isprint(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_isdigit(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_isascii(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_isalpha(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_isalnum(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ WRITE}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_putchar\_fd(\textcolor{keywordtype}{char}\ c,\ \textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_putendl\_fd(\textcolor{keywordtype}{char}\ *s,\ \textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_putnbr\_fd(\textcolor{keywordtype}{int}\ d,\ \textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_putstr\_fd(\textcolor{keywordtype}{char}\ *s,\ \textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ FPOINTERS}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_striteri(\textcolor{keywordtype}{char}\ *s,\ \textcolor{keywordtype}{void}\ (*f)(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}*));}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *ft\_strmapi(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *s,\ \textcolor{keywordtype}{char}\ (*f)\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ PRINTF}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_printf(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ GNL}}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ \ \ \ *get\_next\_line(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{int}\ free\_buf);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ debug}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_debug(\textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ PROFILE}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structs__time}{t\_time}}\ \ \ \ ft\_time(\textcolor{keywordtype}{int}\ rtype);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ io}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ ft\_create\_file(\textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ ft\_check\_file(\textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ ft\_create\_dir(\textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ *ft\_dirname(\textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ ft\_log(\textcolor{keywordtype}{char}\ *path,\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ BONUS}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structs__list}{t\_list}}\ \ \ \ *ft\_lstnew(\textcolor{keywordtype}{void}\ *content);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_lstadd\_front(\mbox{\hyperlink{structs__list}{t\_list}}\ **lst,\ \mbox{\hyperlink{structs__list}{t\_list}}\ *\textcolor{keyword}{new});}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ ft\_lstsize(\mbox{\hyperlink{structs__list}{t\_list}}\ *lst);}
+\DoxyCodeLine{\mbox{\hyperlink{structs__list}{t\_list}}\ \ \ \ *ft\_lstlast(\mbox{\hyperlink{structs__list}{t\_list}}\ *lst);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_lstadd\_back(\mbox{\hyperlink{structs__list}{t\_list}}\ **lst,\ \mbox{\hyperlink{structs__list}{t\_list}}\ *\textcolor{keyword}{new});}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_lstdelone(\mbox{\hyperlink{structs__list}{t\_list}}\ *lst,\ \textcolor{keywordtype}{void}\ (*del)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_lstclear(\mbox{\hyperlink{structs__list}{t\_list}}\ **lst,\ \textcolor{keywordtype}{void}\ (*del)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \ \ \ ft\_lstiter(\mbox{\hyperlink{structs__list}{t\_list}}\ *lst,\ \textcolor{keywordtype}{void}\ (*f)(\textcolor{keywordtype}{void}\ *));}
+\DoxyCodeLine{\mbox{\hyperlink{structs__list}{t\_list}}\ \ \ \ *ft\_lstmap(\mbox{\hyperlink{structs__list}{t\_list}}\ *lst,\ \textcolor{keywordtype}{void}\ *(*f)(\textcolor{keywordtype}{void}\ *),\ \textcolor{keywordtype}{void}\ (*del)(\textcolor{keywordtype}{void}\ *));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCodeInclude}
+ 

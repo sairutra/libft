@@ -1,0 +1,39 @@
+\doxysection{ft\+\_\+bzero.\+c}
+\hypertarget{ft__bzero_8c_source}{}\label{ft__bzero_8c_source}\index{src/libft/src/memory/ft\_bzero.c@{src/libft/src/memory/ft\_bzero.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ ft\_bzero.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ mynodeus\ <mynodeus@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/06\ 20:08:25\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/07/06\ 15:56:08\ by\ mynodeus\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <libft.h>}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00015}00015\ \textcolor{comment}{//\ This\ function\ gets\ a\ pointer\ to\ a\ certain\ location\ together\ with\ }}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00016}00016\ \textcolor{comment}{//\ the\ buffer\ size\ it\ needs\ to\ set\ to\ zero.\ The\ void\ pointer\ given\ is}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00017}00017\ \textcolor{comment}{//\ typecasted\ to\ char\ *\ so\ each\ byte\ can\ be\ then\ set\ to\ 0\ in\ the\ while\ loop}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00018}00018\ \textcolor{comment}{//\ we\ go\ until\ index\ <\ n\ because\ the\ index\ is\ set\ to\ 0\ while\ n\ is\ total\ length}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00019}00019\ \textcolor{comment}{//\ and\ it\ not\ index\ based\ \ }}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00021}00021\ \textcolor{keywordtype}{void}\ \ \ \ ft\_bzero(\textcolor{keywordtype}{void}\ *s,\ \textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ index;}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *cptr;}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00026}00026\ \ \ \ \ index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00027}00027\ \ \ \ \ cptr\ =\ (\textcolor{keywordtype}{char}\ *)s;}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{while}\ (index\ <\ n)}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ cptr[index]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ index++;}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ft__bzero_8c_source_l00033}00033\ \}}
+
+\end{DoxyCode}

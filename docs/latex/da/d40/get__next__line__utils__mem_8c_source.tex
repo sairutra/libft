@@ -1,0 +1,62 @@
+\doxysection{get\+\_\+next\+\_\+line\+\_\+utils\+\_\+mem.\+c}
+\hypertarget{get__next__line__utils__mem_8c_source}{}\label{get__next__line__utils__mem_8c_source}\index{src/get\_next\_line/src/utils/get\_next\_line\_utils\_mem.c@{src/get\_next\_line/src/utils/get\_next\_line\_utils\_mem.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00001}00001\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :::\ \ \ \ \ \ ::::::::\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ get\_next\_line\_utils\_mem.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :+:\ \ \ \ \ \ :+:\ \ \ \ :+:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +:+\ +:+\ \ \ \ \ \ \ \ \ +:+\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00006}00006\ \textcolor{comment}{/*\ \ \ By:\ spenning\ <spenning@student.42.fr>\ \ \ \ \ \ \ \ \ \ +\#+\ \ +:+\ \ \ \ \ \ \ +\#+\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00007}00007\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\#+\#+\#+\#+\#+\ \ \ +\#+\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ \ Created:\ 2023/10/10\ 19:35:40\ by\ spenning\ \ \ \ \ \ \ \ \ \ \#+\#\ \ \ \ \#+\#\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00009}00009\ \textcolor{comment}{/*\ \ \ Updated:\ 2024/05/14\ 21:21:05\ by\ spenning\ \ \ \ \ \ \ \ \ \#\#\#\ \ \ \#\#\#\#\#\#\#\#.fr\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00010}00010\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00011}00011\ \textcolor{comment}{/*\ **************************************************************************\ */}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00013}00013\ \textcolor{comment}{//\ takes\ nmemb\ and\ size\ parameters,\ functions\ first\ checks}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00014}00014\ \textcolor{comment}{//\ with\ unsigned\ long\ long\ max\_size\ if\ allocation\ would\ be\ possible.}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00015}00015\ \textcolor{comment}{//\ nmemb\ cannot\ be\ bigger\ than\ max\ /\ size\ and\ size\ is\ bigger\ than\ zero\ then}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00016}00016\ \textcolor{comment}{//\ it\ will\ return\ null\ because\ this\ allocation\ won't\ work,\ just\ as\ calloc}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00017}00017\ \textcolor{comment}{//\ if\ nmemb\ is\ too\ big\ but\ size\ is\ 0,\ then\ will\ give\ a\ pointer\ that\ }}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00018}00018\ \textcolor{comment}{//\ can\ later\ be\ free,\ just\ as\ calloc\ does\ in\ real\ life.\ }}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00019}00019\ \textcolor{comment}{//\ with\ the\ parameters\ given,\ if\ it\ is\ possible,\ then\ the\ size\ is\ allocated}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00020}00020\ \textcolor{comment}{//\ plus\ the\ memory\ is\ all\ zero'd}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}../../inc/get\_next\_line.h"{}}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00024}00024\ \textcolor{keywordtype}{void}\ \ \ \ gnl\_bzero(\textcolor{keywordtype}{void}\ *s,\ \textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ index;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *cptr;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00029}00029\ \ \ \ \ index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00030}00030\ \ \ \ \ cptr\ =\ (\textcolor{keywordtype}{char}\ *)s;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{while}\ (index\ <\ n)}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00032}00032\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ cptr[index]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ index++;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00038}00038\ \textcolor{keywordtype}{void}\ \ \ \ *gnl\_calloc(\textcolor{keywordtype}{size\_t}\ nmemb,\ \textcolor{keywordtype}{size\_t}\ size)}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *memory\_vptr;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ totalsize;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ max\_size;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00044}00044\ \ \ \ \ max\_size\ =\ 1844674407370955161;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ !=\ 0\ \&\&\ nmemb\ >\ max\_size\ /\ size)}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00048}00048\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ totalsize\ =\ nmemb\ *\ size;}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ memory\_vptr\ =\ malloc(totalsize);}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!memory\_vptr)}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (NULL);}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ gnl\_bzero(memory\_vptr,\ totalsize);}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (memory\_vptr);}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{get__next__line__utils__mem_8c_source_l00056}00056\ \}}
+
+\end{DoxyCode}
