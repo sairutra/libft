@@ -1,36 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-
-<a  name="readme-top"></a>
-
-<!--
-
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-
-*** that would make this better, please fork the repo and create a pull request
-
-*** or simply open an issue with the tag "enhancement".
-
-*** Don't forget to give the project a star!
-
-*** Thanks again! Now go create something AMAZING! :D
-
--->
-
 <!-- PROJECT SHIELDS -->
-
-<!--
-
-*** I'm using markdown "reference style" links for readability.
-
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-
-*** See the bottom of this document for the declaration of the reference variables
-
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
-
--->
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -70,7 +38,6 @@
 </div>
 
 
-
 <!-- TABLE OF CONTENTS -->
 
 <details>
@@ -96,28 +63,13 @@
 </details>
 
 
-<!-- ABOUT THE PROJECT -->
-
 # About The Project
 
   
 libft is the first project at Codam. Here we created a library that we will use during the rest of our curriculum.  
 
 
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
-
-
-# Built With
-
-* [![C][C]][C-url]
-
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-
 # Getting Started
-
-  
 
 This is an example of how you may give instructions on setting up your project locally.
 
@@ -162,9 +114,6 @@ cp {location}/libft.a {working directory}
   <img src="resources/images/make_libft.png" alt="make_libft" width="1100" height="200">
 </a>
 
-
-<!-- USAGE EXAMPLES -->
-
 # Usage
 
 1. Include libft.h file and libft function in project.
@@ -203,36 +152,23 @@ tests for all files included. In the future memory tests are planned to be added
   <img src="resources/images/tester_2.png" alt="include_libft" width="1100" height="600">
 </a>
 
-<!-- ROADMAP -->
-
 # Roadmap
 
-- [ ] intellisense documentation for each function in libft.h
 - [ ] ft_strcmpnull (ft_strcmp with ability to compare null strings without segfaulting)
 - [ ] memory tests
 
 
 See the [open issues](https://github.com/sebastianpenning/libft/issues) for a full list of proposed features (and known issues).
 
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
 # License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
  
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
 # Acknowledgments
 
 * [Codam](https://www.codam.nl/about-codam) 
 * [Readme Template](https://github.com/othneildrew/Best-README-Template/tree/master)
-
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & resources/IMAGES -->
