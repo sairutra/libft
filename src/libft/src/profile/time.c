@@ -6,11 +6,16 @@
 /*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:10:24 by spenning          #+#    #+#             */
-/*   Updated: 2024/07/06 15:56:46 by mynodeus         ###   ########.fr       */
+/*   Updated: 2024/07/07 17:01:55 by mynodeus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+
+/** @defgroup Profile Profile
+ * Profile file.\n
+ * @{
+ */
 
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[1;32m"
@@ -101,3 +106,4 @@ t_time	ft_time(int rtype)
 	}
 	return (ft_construct_time(before, after, delta));
 }
+/** @}*/

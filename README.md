@@ -39,14 +39,20 @@
 [![MIT License][license-shield]][license-url]
 
 
-<!-- PROJECT LOGO -->
+<!-- https://stackoverflow.com/questions/30863422/doxygen-how-to-embed-images-on-main-page-for-all-output-formats -->
+<!-- https://stackoverflow.com/questions/30863422/doxygen-how-to-embed-images-on-main-page-for-all-output-formats
+ -->
 
+<!-- DOXYGEN -->
+<span style="display:none">\image html logo.png  \cond </span>
+<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/sebastianpenning/libft">
     <img src="resources/images/logo.png" alt="Logo" width="225" height="150">
   </a>
-
+  <!-- DOXYGEN -->
+  <span style="display:none">\endcond </span>
   <h3 align="center">libft</h3>
 
   <p align="center">
