@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:10:24 by spenning          #+#    #+#             */
-/*   Updated: 2024/07/07 17:01:55 by mynodeus         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   time.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/10/12 18:10:24 by spenning      #+#    #+#                 */
+/*   Updated: 2024/08/26 12:52:51 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
-/** @defgroup Profile Profile
- * Profile file.\n
- * @{
- */
 
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[1;32m"
@@ -89,6 +84,9 @@ t_time	ft_time(int rtype)
 	struct timespec			finish;
 	struct timespec			delta;
 
+	ft_memset(&after, 0, sizeof(after));
+	ft_memset(&finish, 0, sizeof(finish));
+	ft_memset(&delta, 0, sizeof(finish));
 	if (g_timing == 0)
 	{
 		clock_gettime(CLOCK_REALTIME, &start);
@@ -106,4 +104,3 @@ t_time	ft_time(int rtype)
 	}
 	return (ft_construct_time(before, after, delta));
 }
-/** @}*/
