@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mynodeus <mynodeus@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 23:03:23 by spenning          #+#    #+#             */
-/*   Updated: 2024/07/06 17:54:43 by mynodeus         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   libft.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: mynodeus <mynodeus@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/10/21 23:03:23 by spenning      #+#    #+#                 */
+/*   Updated: 2024/12/09 14:06:51 by spenning      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <limits.h>
-
 
 // Bonus struct
 
@@ -259,7 +258,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 /**
- * @brief This function takes a pointer to s1 and compares data for n consecutive 
+ * @brief This function takes a pointer to s1 and compares data for n 
+ * consecutive 
  * memory locations from the memory location pointed to by s2 
  * if memory areas that need to be copied overlap then memmove should be used.
  * @param void const *s1
@@ -282,7 +282,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 */
 void	*ft_memchr(const void *s, int c, size_t n);
 /**
- * @brief This function takes allocates memory for nmemb elments of size bytes and 
+ * @brief This function takes allocates memory for nmemb elments of size 
+ * bytes and 
  * returns pointer to the allocated memory.
  * @param size_t nmemb
  * @param size_t size
@@ -344,7 +345,8 @@ int		ft_isalnum(int c);
 */
 int		ft_putchar_fd(char c, int fd);
 /**
- * @brief This function takes char * s and puts this string in fd file descriptor.
+ * @brief This function takes char * s and puts this string in fd 
+ * file descriptor.
  * with nl charachter at the end of the string in the file descriptor
  * @param char *s
  * @param int fd
@@ -474,7 +476,7 @@ t_time	ft_time(int rtype);
  * @exception
  *  1 is error
  */
-int	ft_create_file(char *path);
+int		ft_create_file(char *path);
 /**
  * @brief
  * This function checks if a file exists. This works for 
@@ -487,7 +489,7 @@ int	ft_create_file(char *path);
  *  0 is file exists
  *  1 is file does not exist
  */
-int	ft_check_file(char *path);
+int		ft_check_file(char *path);
 /** 
  * @brief
  * This function tries to create a directory.
@@ -501,7 +503,7 @@ int	ft_check_file(char *path);
  *  mkdir function failed or directory already exists.
  *  check with ft_check_file function.
  */
-int	ft_create_dir(char *path);
+int		ft_create_dir(char *path);
 /**
  * @brief
  * This function returns the directory path of a full 
@@ -518,7 +520,7 @@ int	ft_create_dir(char *path);
  *  mkdir function failed or directory already exists.
  *  check with ft_check_file function.
  */
-char *ft_dirname(char *path);
+char	*ft_dirname(char *path);
 /**
  * @brief
  * This function writes the log message to the indicated log file.
@@ -537,7 +539,7 @@ char *ft_dirname(char *path);
  *  1 is error: 
  *  fopen failed to open file
  */
-int	ft_log(char *path, char *format, ...);
+int		ft_log(char *path, char *format, ...);
 
 // BONUS
 
